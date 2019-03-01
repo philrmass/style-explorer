@@ -4,7 +4,7 @@ import styles from './NavBar.css';
 function NavBar() {
   return (
     <div className={styles.navBar}>
-      <span>NavBar</span>
+      <span>Style Explorer</span>
     </div>
   );
 }

@@ -1,3 +1,6 @@
 .navBar {
-  background-color: #60b080;
+  padding: 0.3em;
+  padding-left: 0.6em;
+  background-color: var(--nav-bar-color);
+  font-size: 3.6rem;
 }
