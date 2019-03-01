@@ -1,8 +1,9 @@
 import React from 'react';
-import NavBar from './NavBar';
 import ColorBar from './ColorBar';
-import ToolBar from './ToolBar';
+import NavBar from './NavBar';
+import SourceDisplay from './SourceDisplay';
 import SourceList from './SourceList';
+import ToolBar from './ToolBar';
 import ToolDisplay from './ToolDisplay';
 import styles from './MainPane.css';
 
@@ -15,6 +16,7 @@ function MainPane() {
       <ToolBar />
       <SourceList />
       <ToolDisplay />
+      <SourceDisplay />
     </div>
   );
 }
