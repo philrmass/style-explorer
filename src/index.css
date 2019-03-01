@@ -1,6 +1,8 @@
 :root {
+  --nav-bar-color: #484c52;
   --dark-text-color: #404040;
   --light-text-color: #fafafa;
+  --current-contrast-color: var(--light-text-color);
   --body-font: 'Fira Sans', sans-serif;
   /*
   --body-font: 'Karla', sans-serif;

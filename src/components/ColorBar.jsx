@@ -7,7 +7,7 @@ import styles from './ColorBar.css';
 function ColorBar() {
   return (
     <div className={styles.colorBar}>
-      <span>ColorBar</span>
+      <span>#ff8000</span>
       <Button>
         <Icon 
           source={copyIcon} />

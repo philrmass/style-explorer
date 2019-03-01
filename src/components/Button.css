@@ -1,3 +1,21 @@
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /*
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  margin: 0.1em;
   background-color: #8060b0;
+  color: var(--current-contrast-color);
+  */
+}
+
+.button:hover,
+.button:active {
+  border: 2px solid currentColor;
+}
+
+.button:focus {
 }
