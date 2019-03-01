@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import ColorBar from './ColorBar';
+import ToolBar from './ToolBar';
 import styles from './MainPane.css';
 
 function MainPane() {
@@ -9,6 +10,7 @@ function MainPane() {
       <span>MainPane</span>
       <NavBar />
       <ColorBar />
+      <ToolBar />
     </div>
   );
 }
