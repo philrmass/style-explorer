@@ -3,4 +3,5 @@
   padding-left: 0.6em;
   background-color: var(--dark-color);
   font-size: 3.6rem;
+  font-family: var(--headline-font);
 }

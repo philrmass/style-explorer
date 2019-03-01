@@ -1,22 +1,14 @@
 :root {
   --left-nav-padding: 0.2em;
+  --content-padding: 0.6em;
   --border-color: #808284;
   --dark-color: #484c52;
   --mid-color: #6e7273;
   --dark-text-color: #404040;
   --light-text-color: #fafafa;
   --current-contrast-color: var(--light-text-color);
+  --headline-font: 'Open Sans', sans-serif;
   --body-font: 'Fira Sans', sans-serif;
-  /*
-  --body-font: 'Open Sans', sans-serif;
-  --body-font: 'Karla', sans-serif;
-  --body-font: 'Lato', sans-serif;
-  --body-font: 'Oxygen', sans-serif;
-  --body-font: 'Source Sans Pro', sans-serif;
-  --body-font: 'Fjalla One', sans-serif;
-  --body-font: 'Oswald', sans-serif;
-  --headline-font: 
-  */
 }
 
 html {

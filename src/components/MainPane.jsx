@@ -12,7 +12,7 @@ function MainPane() {
         <ToolBar />
         <SourceList />
       </nav>
-      <div>
+      <div className={styles.content}>
         <ToolDisplay />
         <SourceDisplay />
       </div>

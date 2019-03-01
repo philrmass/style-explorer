@@ -7,3 +7,8 @@
   padding: var(--left-nav-padding);
   max-width: 20%;
 }
+
+.content {
+  padding: var(--content-padding);
+  background-color: #e0fff0;
+}
