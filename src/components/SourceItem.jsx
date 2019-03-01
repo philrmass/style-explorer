@@ -4,7 +4,7 @@ import styles from './SourceItem.css';
 function SourceItem() {
   return (
     <div className={styles.sourceItem}>
-      <span>SourceItem</span>
+      <span>Source Item and longer</span>
     </div>
   );
 }

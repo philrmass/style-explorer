@@ -1,3 +1,6 @@
 .toolBar {
+  display: flex;
+  padding: 0.5em;
+  flex-direction: column;
   background-color: #60b060;
 }

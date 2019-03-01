@@ -5,7 +5,7 @@ import styles from './SourceList.css';
 function SourceList() {
   return (
     <div className={styles.sourceList}>
-      <span>SourceList</span>
+      <span>Recent</span>
       <SourceItem />
       <SourceItem />
       <SourceItem />

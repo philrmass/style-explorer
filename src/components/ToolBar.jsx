@@ -8,7 +8,6 @@ import styles from './ToolBar.css';
 function ToolBar() {
   return (
     <div className={styles.toolBar}>
-      <span>ToolBar</span>
       <Button>
         <Icon 
           source={pickerIcon} />

@@ -1,3 +1,9 @@
 .sourceItem {
+  display: flex;
+  padding: 0.1em 0.3em;
+  margin: 0.1em;
   background-color: #b0b060;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
