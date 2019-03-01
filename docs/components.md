@@ -4,6 +4,23 @@
 
 App
 - SourceContainer [Main application state]
+  - MainPane
+    - NavBar
+    - ColorBar
+      - Button (x2)
+        - Icon
+    - ToolBar
+      - Button (xN)
+        - Icon
+    - SourceList
+      - SourceItem
+    - ToolDisplay
+      - ColorPicker
+      - BoxGraph
+    - SourceDisplay
+      - Magnifier
+  - StartupPane
+    - SourceLoadForm
 
 ### Initial Component Tree Sketch
 
