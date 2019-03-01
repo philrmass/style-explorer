@@ -7,11 +7,26 @@ import styles from './ColorBar.css';
 function ColorBar() {
   return (
     <div className={styles.colorBar}>
-      <span>#ff8000</span>
-      <Button>
-        <Icon 
-          source={copyIcon} />
-      </Button>
+      <div className={styles.colorItem}>
+        <Button>
+          <Icon 
+            source={copyIcon} />
+        </Button>
+      </div>
+      <div className={styles.colorItem}>
+        <span>#80b060</span>
+        <Button>
+          <Icon 
+            source={copyIcon} />
+        </Button>
+      </div>
+      <div>
+        <span>rgba(128, 176, 96, 1)</span>
+        <Button>
+          <Icon 
+            source={copyIcon} />
+        </Button>
+      </div>
     </div>
   );
 }

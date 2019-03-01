@@ -1,15 +1,10 @@
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   box-sizing: border-box;
-  /*
   padding: 0.1em 0.3em;
+  border: 2px solid transparent;
   border-radius: 3px;
-  margin: 0.1em;
-  background-color: #8060b0;
+  margin: 0.2em;
   color: var(--current-contrast-color);
-  */
 }
 
 .button:hover,

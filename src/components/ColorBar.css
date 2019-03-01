@@ -1,5 +1,14 @@
 .colorBar {
-  padding: 1.0em;
+  display: flex;
+  padding: 0.8em;
+  border: 1px solid var(--border-color);
   background-color: #80b060;
   font-size: 1.6em;
+}
+
+.colorItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.6em;
 }

@@ -4,10 +4,9 @@ import styles from './Button.css';
 
 function Button({children}) {
   return (
-    <div className={styles.button}>
-      <span>Button</span>
+    <button className={styles.button}>
       {children}
-    </div>
+    </button>
   );
 }
 
