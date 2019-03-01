@@ -4,7 +4,7 @@ import styles from './App.css';
 function App() {
   return (
     <div className={styles.app}>
-      <h1>React Application</h1>
+      <p>App</p>
     </div>
   );
 }
