@@ -1,9 +1,14 @@
 .sourceItem {
   display: flex;
   padding: 0.1em 0.3em;
+  border-radius: 2px;
   margin: 0.1em;
-  background-color: #b0b060;
+  background-color: var(--mid-color);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.sourceItem:hover {
+  color: red;
 }

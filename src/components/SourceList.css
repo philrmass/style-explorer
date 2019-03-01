@@ -1,7 +1,8 @@
 .sourceList {
   display: flex;
   flex-direction: column;
-  padding: 0.5em 0.2em;
-  background-color: #6060b0;
+  padding: 0.5em 0.5em;
+  border-radius: 5px;
+  background-color: var(--dark-color);
   overflow: hidden;
 }

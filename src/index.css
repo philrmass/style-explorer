@@ -1,6 +1,8 @@
 :root {
+  --left-nav-padding: 0.2em;
   --border-color: #808284;
-  --nav-bar-color: #484c52;
+  --dark-color: #484c52;
+  --mid-color: #6e7273;
   --dark-text-color: #404040;
   --light-text-color: #fafafa;
   --current-contrast-color: var(--light-text-color);

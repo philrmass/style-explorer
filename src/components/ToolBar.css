@@ -1,6 +1,8 @@
 .toolBar {
   display: flex;
-  padding: 0.5em;
   flex-direction: column;
-  background-color: #60b060;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin-bottom: var(--left-nav-padding);
+  background-color: var(--dark-color);
 }

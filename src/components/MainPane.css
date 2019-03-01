@@ -4,5 +4,6 @@
 }
 
 .leftNav {
+  padding: var(--left-nav-padding);
   max-width: 20%;
 }
