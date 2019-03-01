@@ -28,6 +28,9 @@ Open up a browser window to the address **localhost:8080** and you should see th
 
 ## Design and Planning
 
+* [Component Tree and Layout](docs/components.md)
+* [Tasks](docs/tasks.md)
+
 ## Known Bugs and Missing Features
 
 The app is currently under construction
