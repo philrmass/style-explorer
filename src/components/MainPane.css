@@ -4,6 +4,8 @@
 }
 
 .leftNav {
+  display: flex;
+  flex-direction: column;
   padding: var(--left-nav-padding);
   max-width: 20%;
 }
@@ -17,4 +19,21 @@
 
 .content > * {
   margin: var(--content-half-padding);
+}
+
+@media only screen and (min-width: 1200px) {
+  .content {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .leftNav {
+    flex-direction: row;
+    max-width: 100%;
+  }
+
+  .mainPane {
+    flex-direction: column;
+  }
 }

@@ -1,4 +1,4 @@
 .toolDisplay {
-  border: 1px solid var(--border-color);
+  flex-grow: 1;
   border-radius: 1px;
 }
