@@ -9,6 +9,12 @@
 }
 
 .content {
-  padding: var(--content-padding);
-  background-color: #e0fff0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: var(--content-half-padding);
+}
+
+.content > * {
+  margin: var(--content-half-padding);
 }

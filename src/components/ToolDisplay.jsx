@@ -6,7 +6,6 @@ import styles from './ToolDisplay.css';
 function ToolDisplay() {
   return (
     <div className={styles.toolDisplay}>
-      <span>ToolDisplay</span>
       <ColorPicker />
       <BoxGraph />
     </div>
