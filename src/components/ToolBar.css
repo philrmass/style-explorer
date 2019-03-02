@@ -1,6 +1,7 @@
 .toolBar {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 0.5em;
   border-radius: 5px;
   margin-bottom: var(--left-nav-padding);

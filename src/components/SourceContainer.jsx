@@ -2,7 +2,7 @@ import React from 'react';
 import ColorBar from './ColorBar';
 import MainPane from './MainPane';
 import NavBar from './NavBar';
-import StartupPane from './StartupPane';
+import SearchPane from './SearchPane';
 
 function SourceContainer() {
   return (
@@ -10,7 +10,7 @@ function SourceContainer() {
       <NavBar />
       <ColorBar />
       <MainPane />
-      <StartupPane />
+      <SearchPane />
     </div>
   );
 }

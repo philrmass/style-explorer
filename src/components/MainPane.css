@@ -1,25 +1,23 @@
 .mainPane {
   display: flex;
+  padding: var(--content-half-padding);
   font-size: 1.6rem;
 }
 
 .leftNav {
   display: flex;
   flex-direction: column;
-  padding: var(--nav-padding);
   max-width: 20%;
 }
 
 .leftNav > * {
-  margin-right: 0;
-  margin-bottom: var(--nav-padding);
+  margin: var(--content-half-padding);
 }
 
 .content {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: var(--content-half-padding);
 }
 
 .content > * {
@@ -36,11 +34,6 @@
   .leftNav {
     flex-direction: row;
     max-width: 100%;
-  }
-
-  .leftNav > * {
-    margin-right: var(--nav-padding);
-    margin-bottom: 0;
   }
 
   .mainPane {
