@@ -1,0 +1,8 @@
+.source {
+  position: relative;
+}
+
+.source img {
+  height: 500px;
+  border: 1px solid var(--border-color);
+}
