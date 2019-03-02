@@ -4,6 +4,7 @@
   --border-color: #808284;
   --dark-color: #484c52;
   --mid-color: #6e7273;
+  --light-color: #a0a0a0;
   --dark-text-color: #404040;
   --light-text-color: #fafafa;
   --current-contrast-color: var(--light-text-color);
@@ -14,6 +15,7 @@
 html {
   font-size: 10px;
   font-family: var(--body-font);
+  background-color: var(--light-color);
   color: var(--light-text-color);
 }
 
