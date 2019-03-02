@@ -6,8 +6,13 @@
 .leftNav {
   display: flex;
   flex-direction: column;
-  padding: var(--left-nav-padding);
+  padding: var(--nav-padding);
   max-width: 20%;
+}
+
+.leftNav > * {
+  margin-right: 0;
+  margin-bottom: var(--nav-padding);
 }
 
 .content {
@@ -31,6 +36,11 @@
   .leftNav {
     flex-direction: row;
     max-width: 100%;
+  }
+
+  .leftNav > * {
+    margin-right: var(--nav-padding);
+    margin-bottom: 0;
   }
 
   .mainPane {

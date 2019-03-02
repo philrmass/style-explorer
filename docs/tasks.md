@@ -1,9 +1,10 @@
-# Style Explorer Tasks
+## Style Explorer Tasks
 
-## To Do
-- Clean up font link tag
-- Try different body and headline fonts
+### To Do
 - Create svg component icons with fill color set as a prop
 - Show full source item text on hover
+- Fix margins for nav and content
 
-## Completed
+### Completed
+- Try different body and headline fonts
+- Clean up font link tag
