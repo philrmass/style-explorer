@@ -22,6 +22,10 @@ App
   - StartupPane
     - SourceLoadForm
 
+### Initial Component Tree Sketch
+
+<img src="tree.png" width="600px"/>
+
 ## Application Sketches
 
 I created these sketches of the various dynamic states of the app in order to sort out the component hierarchy

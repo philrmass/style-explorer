@@ -6,7 +6,8 @@
 
 _This JavaScript React application lets you explore the colors of a website or image_
 
-_This was originally created as my capstone project for Epicodus._
+_This was originally created as my capstone project for Epicodus. This was the [project proposal](docs/proposal.md)_
+_
 
 ## Setup and Installation
 
