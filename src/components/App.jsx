@@ -2,7 +2,6 @@ import React from 'react';
 import ColorBar from './ColorBar';
 import MainPane from './MainPane';
 import NavBar from './NavBar';
-import SourceContainer from './SourceContainer';
 import styles from './App.css';
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
       <ColorBar 
         color={color}/>
       <MainPane />
-      <SourceContainer />
     </div>
   );
 }

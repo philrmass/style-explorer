@@ -6,6 +6,8 @@
 
 _This JavaScript React/Redux application lets you explore the colors of a website or image_
 
+_You can see the deployed version [here](https://philrmass.github.io/style-explorer/)_
+
 _To make the app mobile-friendly while keeping the structure simple and flat, I created a Collapsible class that allows each section to be opened or closed, depending on what the user is doing, and also allows the layout to be responsive because the sections can be stacked or expanded depending on the size of the display_
 
 _This was originally created as my capstone project for Epicodus. This was the [project proposal](docs/proposal.md)_

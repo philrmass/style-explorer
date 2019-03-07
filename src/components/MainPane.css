@@ -1,41 +1,17 @@
 .mainPane {
   display: flex;
+  flex-wrap: wrap;
   padding: var(--main-half-padding);
   font-size: 1.6rem;
 }
 
-.leftNav {
-  display: flex;
-  flex-direction: column;
-  max-width: 20%;
-}
-
-.leftNav > * {
-  margin: var(--main-half-padding);
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.content > * {
-  margin: var(--main-half-padding);
-}
-
 @media only screen and (min-width: 1200px) {
-  .content {
+  .mainPane {
     flex-direction: row;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .leftNav {
-    flex-direction: row;
-    max-width: 100%;
-  }
-
   .mainPane {
     flex-direction: column;
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from './Button';
 import SourceItem from './SourceItem';
 import styles from './SourceList.css';
 
@@ -12,9 +11,6 @@ function SourceList() {
       <SourceItem />
       <SourceItem />
       <SourceItem />
-      <div>
-        <Button>Load</Button>
-      </div>
     </div>
   );
 }

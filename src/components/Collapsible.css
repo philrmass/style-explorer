@@ -2,6 +2,7 @@
   padding: var(--content-padding);
   border: 1px solid var(--border-color);
   border-radius: var(--main-border-radius);
+  margin: var(--main-half-padding);
   background-color: var(--dark-color);
 }
 

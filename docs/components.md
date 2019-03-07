@@ -4,12 +4,10 @@
 
 - App
   - NavBar
+  - ColorBar
+    - Button (x2)
+      - CopyIcon
   - MainPane
-    - Collapsible
-      - CollapseButton
-      - ColorBar
-        - Button (x2)
-          - CopyIcon
     - Collapsible
       - CollapseButton
       - ColorPicker

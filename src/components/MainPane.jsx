@@ -1,12 +1,9 @@
 import React from 'react';
 import Collapsible from './Collapsible';
 import ColorPicker from './ColorPicker';
-/*
-import SourceDisplay from './SourceDisplay';
-import SourceList from './SourceList';
-import ToolBar from './ToolBar';
-import ToolDisplay from './ToolDisplay';
-*/
+import Graph from './Graph';
+import Source from './Source';
+import Sources from './Sources';
 import styles from './MainPane.css';
 
 function MainPane() {
@@ -16,18 +13,20 @@ function MainPane() {
         name='Color Picker'>
         <ColorPicker/>
       </Collapsible>
+      <Collapsible
+        name='Graph'>
+        <Graph/>
+      </Collapsible>
+      <Collapsible
+        name='Source'>
+        <Source/>
+      </Collapsible>
+      <Collapsible
+        name='Sources'>
+        <Sources/>
+      </Collapsible>
     </div>
   );
 }
 
-/*
-      <nav className={styles.leftNav}>
-        <ToolBar />
-        <SourceList />
-      </nav>
-      <div className={styles.content}>
-        <ToolDisplay />
-        <SourceDisplay />
-      </div>
-*/
 export default MainPane;
