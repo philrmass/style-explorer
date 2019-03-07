@@ -32,6 +32,7 @@ Open up a browser window to the address **localhost:8080** and you should see th
 ## Design and Planning
 
 * [Component Tree and Layout](docs/components.md)
+* [Data and Actions](docs/data.md)
 * [Tasks](docs/tasks.md)
 
 ## Known Bugs and Missing Features

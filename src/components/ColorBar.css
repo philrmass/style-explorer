@@ -1,24 +1,30 @@
 .colorBar {
   display: flex;
   padding: 0.6em;
+  font-size: 2.4rem;
   border: 1px solid var(--border-color);
+  /*
   background-color: #80b060;
-  font-size: 2.6rem;
+  */
 }
 
 .colorItems {
+  /*
   display: flex;
+  */
 }
 
 .colorItem {
+  /*
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 0.6em;
+  */
 }
 
 @media only screen and (max-width: 600px) {
-  .colorItems {
+  .colorBar {
     flex-direction: column;
   }
 }

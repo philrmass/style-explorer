@@ -1,36 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './Button';
-import Icon from './Icon';
-import copyIcon from '../assets/images/checkMark.svg';
+import CopyIcon from './CopyIcon';
 import styles from './ColorBar.css';
 
-function ColorBar() {
+function ColorBar({color}) {
   return (
     <div className={styles.colorBar}>
-      <div className={styles.colorItems}>
-        <div className={styles.colorItem}>
-          <Button>
-            <Icon 
-              source={copyIcon} />
-          </Button>
-        </div>
-        <div className={styles.colorItem}>
-          <span>#80b060</span>
-          <Button>
-            <Icon 
-              source={copyIcon} />
-          </Button>
-        </div>
-        <div className={styles.colorItem}>
-          <span>rgba(128, 176, 96, 1)</span>
-          <Button>
-            <Icon 
-              source={copyIcon} />
-          </Button>
-        </div>
+      <div className={styles.colorItem}>
+        <span>#{JSON.stringify(color)}</span>
+        <Button>
+          <CopyIcon/>
+        </Button>
+      </div>
+      <div className={styles.colorItem}>
+        <span>rgba(128, 176, 96, 1)</span>
+        <Button>
+          <CopyIcon/>
+        </Button>
       </div>
     </div>
   );
 }
+
+ColorBar.propTypes = {
+  color: PropTypes.object
+};
 
 export default ColorBar;

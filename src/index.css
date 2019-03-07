@@ -1,20 +1,27 @@
 :root {
-  --content-half-padding: 0.3em;
+  --main-half-padding: 1.0rem;
+  --content-padding: 0.6rem;
+  --main-border-radius: 3px;
   --border-color: #808284;
-  --dark-color: #484c52;
   --mid-color: #6e7273;
+  --dark-color: #484c52;
+  --highlight-color: #00c8ff;
+  --light-text-color: #fafafa;
+  --body-font: 'Fira Sans', sans-serif;
+  --headline-font: 'Open Sans', sans-serif;
+
+  /*??? remove unused css vars*/
+  /*
   --light-color: #a0a0a0;
   --dark-text-color: #404040;
-  --light-text-color: #fafafa;
   --current-contrast-color: var(--light-text-color);
-  --headline-font: 'Open Sans', sans-serif;
-  --body-font: 'Fira Sans', sans-serif;
+  */
 }
 
 html {
   font-size: 10px;
   font-family: var(--body-font);
-  background-color: var(--light-color);
+  background-color: var(--mid-color);
   color: var(--light-text-color);
 }
 

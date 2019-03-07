@@ -1,0 +1,17 @@
+.collapsible {
+  padding: var(--content-padding);
+  border: 1px solid var(--border-color);
+  border-radius: var(--main-border-radius);
+  background-color: var(--dark-color);
+}
+
+.title{
+  padding-bottom: var(--content-padding);
+}
+
+.name{
+  margin-left: var(--content-padding);
+}
+
+.content {
+}
