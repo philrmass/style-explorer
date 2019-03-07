@@ -5,8 +5,9 @@ import CopyIcon from './CopyIcon';
 import styles from './ColorBar.css';
 
 function ColorBar({color}) {
+  const style= { backgroundColor: '#' + color.hex };
   return (
-    <div className={styles.colorBar}>
+    <div className={styles.colorBar} style={style}>
       <div className={styles.colorItem}>
         <span>#{JSON.stringify(color)}</span>
         <Button>
