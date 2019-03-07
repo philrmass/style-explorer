@@ -2,25 +2,33 @@
 
 ## Component Tree
 
-App
-- SourceContainer [Main application state]
+- App
+  - NavBar
   - MainPane
-    - NavBar
-    - ColorBar
-      - Button (x2)
-        - Icon
-    - ToolBar
-      - Button (xN)
-        - Icon
-    - SourceList
-      - SourceItem
-    - ToolDisplay
+    - Collapsible
+      - CollapseButton
+      - ColorBar
+        - Button (x2)
+          - CopyIcon
+    - Collapsible
+      - CollapseButton
       - ColorPicker
-      - BoxGraph
-    - SourceDisplay
-      - Magnifier
-  - StartupPane
-    - SourceLoadForm
+    - Collapsible
+      - CollapseButton
+      - Graph
+        - BoxGraph
+      - GraphTypeList
+        - GraphType
+    - Collapsible
+      - CollapseButton
+      - Source
+        - Magnifier
+    - Collapsible
+      - CollapseButton
+      - SourceLoadForm
+        - Button (Load)
+      - SourceList
+        - SourceItem (xN)
 
 ### Initial Component Tree Sketch
 
