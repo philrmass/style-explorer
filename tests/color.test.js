@@ -22,7 +22,10 @@ describe('Color', () => {
     hex: hexValue,
     red: redValue,
     green: greenValue,
-    blue: blueValue
+    blue: blueValue,
+    hue: hueValue,
+    sat: satValue,
+    light: lightValue
   };
 
   test('should convert hex to rgb', () => {

@@ -1,10 +1,8 @@
 ## Style Explorer Tasks
 
 ### To Do
-* Add color conversions hex to rgb & hsv
-* Add color tests
-* Add currentColor reducer tests
-* Set color in color bar and picker from props
+* Dispatch color from color picker
+* Set color in color bar and picker from store/props
 * Add source form as a controlled component
 * Load a local image
 * Add click/drag events to color picker
@@ -58,3 +56,6 @@
 * Remove components (SearchPane, SourceContainer, SourceDisplay, ToolBar, ToolDisplay)
 * Add redux store, provider, and subscibe to monitor
 * Dispatch color from color picker
+* Add color conversions hex to rgb & hsv
+* Add color tests
+* Add currentColor reducer tests

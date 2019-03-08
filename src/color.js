@@ -3,7 +3,8 @@ class Color {
     const rgb = this.hexToRgb(hex);
     return {
       hex: hex,
-      ...rgb
+      ...rgb,
+      ...this.rgbToHsl(rgb)
     };
   }
 
