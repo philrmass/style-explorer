@@ -5,9 +5,9 @@ describe('Color', () => {
   const redValue = 255;
   const greenValue = 181;
   const blueValue = 42;
-  const hueValue = 39;
-  const satValue = 100;
-  const lightValue = 58;
+  const hueValue = 39.2;
+  const satValue = 100.0;
+  const lightValue = 58.2;
   const rgbValue = {
     red: redValue,
     green: greenValue,

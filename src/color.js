@@ -16,11 +16,48 @@ class Color {
   }
 
   static rgbToHsl(rgb) {
+    const r = rgb.red / 255;
+    const g = rgb.green / 255;
+    const b = rgb.blue / 255;
+    const min = Math.min(r, g, b);
+    const max = Math.max(r, g, b);
+    const range = max - min;
+
+    let hue = 0;
+    if(r == max) {
+      hue = ((g - b) / range);
+    } else if(g === max) {
+      hue = 2 + ((b - r) / range);
+    } else {
+      hue = 4 + ((r - g) / range);
+    }
+    hue = isNaN(hue) ? 0 : this.toDegrees(hue);
+    if(hue < 0) {
+      hue += 360;
+    }
+    const light = this.toPercent((min + max) / 2);
+    let sat = 0;
+    if(max > min) {
+      if(light < 50) {
+        sat = this.toPercent(range / (max + min));
+      } else {
+        sat = this.toPercent(range / (2 - max - min));
+      }
+    }
+
     return {
-      hue: 0,
-      sat: 0,
-      light: 0 
+      hue,
+      sat,
+      light
     };
+  }
+
+  static toDegrees(value) {
+    return Math.round(600 * value) / 10;
+  }
+
+  static toPercent(value) {
+    return Math.round(1000 * value) / 10;
   }
 }
 
