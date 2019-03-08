@@ -2,7 +2,6 @@
 
 ### To Do
 #### Components
-* Remove components (SearchPane, SourceContainer, SourceDisplay, ToolBar, ToolDisplay)
 * Display current color in color bar and picker
 * Add source form as a controlled component
 * Load a local image
@@ -50,3 +49,4 @@
 * Fix margins for nav and content
 * Update component list in readme, change app to a bullet
 * Create new components for updated tree
+* Remove components (SearchPane, SourceContainer, SourceDisplay, ToolBar, ToolDisplay)
