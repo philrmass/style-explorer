@@ -15,11 +15,11 @@ class Color {
     };
   }
 
-  static rgbToHsv(rgb) {
+  static rgbToHsl(rgb) {
     return {
       hue: 0,
       sat: 0,
-      value: 0 
+      light: 0 
     };
   }
 }
