@@ -1,7 +1,9 @@
 class Color {
   static hexToColor(hex) {
+    const rgb = this.hexToRgb(hex);
     return {
-      hex: hex
+      hex: hex,
+      ...rgb
     };
   }
 
@@ -13,11 +15,11 @@ class Color {
     };
   }
 
-  static rgbToHsv(red, green, blue) {
+  static rgbToHsv(rgb) {
     return {
-      red: red,
-      green: green,
-      blue: blue
+      hue: 0,
+      sat: 0,
+      value: 0 
     };
   }
 }
