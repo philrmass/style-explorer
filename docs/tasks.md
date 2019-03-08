@@ -1,10 +1,17 @@
 ## Style Explorer Tasks
 
 ### To Do
+* Add color conversions hex to rgb & hsv
+* Add color tests
+* Add currentColor reducer tests
+* Set color in color bar and picker from props
+* Add source form as a controlled component
+* Load a local image
+* Add click/drag events to color picker
+* Set HSV values from click and drag
+* Update data reference
+
 #### Components
-- Display current color in color bar and picker
-- Add source form as a controlled component
-- Load a local image
 * Read pixel values from source
 * Display image in source component
 * Load a url image
@@ -14,10 +21,8 @@
 * Connect magnifier events to current color reducer
 * Show full source item text on hover
 #### Data
-- Dispatch color from color picker
-- Add props color bar and color picker
-- Define ui state slice
-- Define currentSource state slice
+* Define ui state slice
+* Define currentSource state slice
 * Define sources state slice
 * Define actions
 * Define action creators
@@ -31,10 +36,8 @@
 * Save sources to indexdb
 * Update docs with actions, reducers, data
 #### Graphics
-- Create basic color picker from dom elements
-- Add click/drag events to color picker
-- Add rotating circle to color picker
-* Set HSV values from click and drag
+* Create basic color picker from dom elements
+* Add rotating circle to color picker
 * Add color elements for color picker directions
 * Add custom image background to color picker
 * Create a webgl transparent-background cube
@@ -54,3 +57,4 @@
 * Create new components for updated tree
 * Remove components (SearchPane, SourceContainer, SourceDisplay, ToolBar, ToolDisplay)
 * Add redux store, provider, and subscibe to monitor
+* Dispatch color from color picker
