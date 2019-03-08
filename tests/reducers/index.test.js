@@ -1,8 +1,9 @@
 import rootReducer from '../../src/reducers/index';
+import * as currentColor from '../../src/reducers/currentColor';
 
 describe('rootReducer', () => {
   const defaultState = { 
-    currentColor: {}
+    currentColor: currentColor.defaultState
   };
 
   test('Should return default state for undefined state', () => {

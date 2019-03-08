@@ -1,7 +1,6 @@
 ## Style Explorer Tasks
 
 ### To Do
-* Dispatch color from color picker
 * Set color in color bar and picker from store/props
 * Add source form as a controlled component
 * Load a local image
@@ -59,3 +58,4 @@
 * Add color conversions hex to rgb & hsv
 * Add color tests
 * Add currentColor reducer tests
+* Dispatch color from color picker

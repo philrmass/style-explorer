@@ -1,5 +1,6 @@
 import { SET_COLOR_HEX } from '../../src/constants/actionTypes';
 import currentColor from '../../src/reducers/currentColor';
+import { defaultState } from '../../src/reducers/currentColor';
 
 describe('currentColor', () => {
   const colorHex = '6b2097';
@@ -14,11 +15,11 @@ describe('currentColor', () => {
   };
 
   test('Should return default state for undefined state', () => {
-    expect(currentColor(undefined, { type: null })).toEqual({});
+    expect(currentColor(undefined, { type: null })).toEqual(defaultState);
   });
 
   test('Should return same state for undefined action', () => {
-    expect(currentColor({}, { type: null })).toEqual({});
+    expect(currentColor(defaultState, { type: null })).toEqual(defaultState);
   });
 
   test('Should set color from hex value', () => {
