@@ -1,4 +1,4 @@
-import { SET_COLOR_HEX } from './actionTypes';
+import { SET_COLOR_HEX } from '../constants/actionTypes';
 
 function currentColor(state = {}, action) {
   console.log('currentColor', state, action);

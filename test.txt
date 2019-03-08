@@ -1,0 +1,4 @@
+
+  "jest": {
+    "testRegex": "tests/.*\\.(js|jsx)$"
+  },

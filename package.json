@@ -13,6 +13,9 @@
     "test": "jest --verbose",
     "test-all": "jest --watchAll"
   },
+  "jest": {
+    "testRegex": "tests/.*\\.(js|jsx)$"
+  },
   "author": "Phil Mass",
   "license": "ISC",
   "dependencies": {
