@@ -2,9 +2,9 @@
 
 ### To Do
 #### Components
-* Display current color in color bar and picker
-* Add source form as a controlled component
-* Load a local image
+- Display current color in color bar and picker
+- Add source form as a controlled component
+- Load a local image
 * Read pixel values from source
 * Display image in source component
 * Load a url image
@@ -14,9 +14,11 @@
 * Connect magnifier events to current color reducer
 * Show full source item text on hover
 #### Data
-* Add props for basic display of components
-* Add redux store, provider, and subscibe to monitor
-* Define state slices and reducers
+- Dispatch color from color picker
+- Add props color bar and color picker
+- Define ui state slice
+- Define currentSource state slice
+* Define sources state slice
 * Define actions
 * Define action creators
 * Add color conversion file
@@ -27,10 +29,11 @@
 * Add rgb to hsv conversion function
 * Add source color reduce function for grouping
 * Save sources to indexdb
+* Update docs with actions, reducers, data
 #### Graphics
-* Create basic color picker from dom elements
-* Add click/drag events to color picker
-* Add rotating circle to color picker
+- Create basic color picker from dom elements
+- Add click/drag events to color picker
+- Add rotating circle to color picker
 * Set HSV values from click and drag
 * Add color elements for color picker directions
 * Add custom image background to color picker
@@ -50,3 +53,4 @@
 * Update component list in readme, change app to a bullet
 * Create new components for updated tree
 * Remove components (SearchPane, SourceContainer, SourceDisplay, ToolBar, ToolDisplay)
+* Add redux store, provider, and subscibe to monitor
