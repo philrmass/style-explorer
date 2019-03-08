@@ -18,12 +18,12 @@ function MainPane() {
         <Graph/>
       </Collapsible>
       <Collapsible
-        name='Source'>
-        <Source/>
-      </Collapsible>
-      <Collapsible
         name='Sources'>
         <Sources/>
+      </Collapsible>
+      <Collapsible
+        name='Source'>
+        <Source/>
       </Collapsible>
     </div>
   );

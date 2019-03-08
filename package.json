@@ -10,7 +10,8 @@
     "gh-deploy": "webpack --mode production && gh-pages -d public",
     "lint": "eslint src/** src/**/**",
     "lint-fix": "eslint src/** src/**/** --fix",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "test-all": "jest --watchAll"
   },
   "author": "Phil Mass",
   "license": "ISC",
