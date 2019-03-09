@@ -5,13 +5,11 @@ import NavBar from './NavBar';
 import styles from './App.css';
 
 function App() {
-  const color = { hex: '80b060' };
   return (
     <div className={styles.app}>
-      <NavBar />
-      <ColorBar 
-        color={color}/>
-      <MainPane />
+      <NavBar/>
+      <ColorBar/>
+      <MainPane/>
     </div>
   );
 }

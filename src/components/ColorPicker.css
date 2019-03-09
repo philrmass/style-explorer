@@ -3,4 +3,5 @@
   min-width: 400px;
   border: 1px solid var(--border-color);
   background-color: #808080;
+  font-family: monospace;
 }

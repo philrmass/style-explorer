@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ColorPicker.css';
 import { connect } from 'react-redux';
+import styles from './ColorPicker.css';
 
-function ColorPicker(props) {
-  const style = { backgroundColor: '#' + props.color.hex };
+function ColorPicker({ dispatch, color }) {
+  const style = { backgroundColor: '#' + color.hex };
   return (
     <div 
       className={styles.colorPicker}
       style={style}
-      onClick={() => props.dispatch({ type: 'SET_COLOR_HEX', hex: '6b2097'})} >
-      <span>ColorPicker</span>
+      onClick={() => dispatch({ type: 'SET_COLOR_HEX', hex: '6b2097'})}>
+      <div>H {color.hue}</div>
+      <div>S {color.sat}</div>
+      <div>L {color.light}</div>
     </div>
   );
 }

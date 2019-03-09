@@ -1,8 +1,10 @@
 .colorBar {
   display: flex;
+  flex-wrap: wrap;
   padding: 0.3em;
-  font-size: 2.4rem;
   border: 1px solid var(--border-color);
+  background-color: #808080;
+  font-size: 2.4rem;
 }
 
 .colorItem {
@@ -12,8 +14,10 @@
   margin: 0.3em;
 }
 
-@media only screen and (max-width: 600px) {
-  .colorBar {
-    flex-direction: column;
-  }
+.colorItem span {
+  margin-right: 0.3em;
+}
+
+.colorItem:first-child Button {
+  margin-right: 0.4em;
 }
