@@ -3,12 +3,8 @@ import PropTypes from 'prop-types';
 import styles from './ColorPicker.css';
 import { connect } from 'react-redux';
 
-const style = { backgroundColor: 'red' };
-//const style = { backgroundColor: props.color.hex };
-
 function ColorPicker(props) {
-  console.log('PICKER', props.color.hex);
-
+  const style = { backgroundColor: '#' + props.color.hex };
   return (
     <div 
       className={styles.colorPicker}
