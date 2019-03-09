@@ -9,13 +9,6 @@
   --light-text-color: #fafafa;
   --body-font: 'Fira Sans', sans-serif;
   --headline-font: 'Open Sans', sans-serif;
-
-  /*??? remove unused css vars*/
-  /*
-  --light-color: #a0a0a0;
-  --dark-text-color: #404040;
-  --current-contrast-color: var(--light-text-color);
-  */
 }
 
 html {
@@ -46,4 +39,8 @@ input {
   color: inherit;
   font: inherit;
   outline: none;
+}
+
+input[type="file"] {
+  display: none;
 }
