@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import styles from './SourceLoadForm.css';
+//??? check that file.type or blob.type begins with 'image'
 
 class SourceLoadForm extends React.Component {
   constructor(props) {
@@ -21,15 +22,16 @@ class SourceLoadForm extends React.Component {
 
   handleUrlSubmit(event) {
     event.preventDefault();
-    console.log('url submit', this.state.inputUrl);
     const url = this.state.inputUrl;
     fetch(this.state.inputUrl)
       .then(response => response.blob())
       .then(blob => {
-        console.log('FETCH_IMAGE', blob, '\nurl', url);
-        this.setState({ url: url });
+        if(this.isImage(blob)) {
+          this.processImage(url, window.URL.createObjectURL(blob));
+        } else {
+          console.error('Failed to load image from ' + url);
+        }
       });
-    this.setState({ inputUrl: ''});
   }
 
   handleFileClick(event) {
@@ -39,6 +41,7 @@ class SourceLoadForm extends React.Component {
 
   handleFileChange(event) {
     event.preventDefault();
+    console.log('type', this.fileInput.current.files[0].type);
     this.handleFile(this.fileInput.current.files[0]);
   }
 
@@ -50,17 +53,28 @@ class SourceLoadForm extends React.Component {
   handleFileDrop(event) {
     event.stopPropagation();
     event.preventDefault();
+    console.log('type', event.dataTransfer.files[0].type);
     this.handleFile(event.dataTransfer.files[0]);
   }
 
   handleFile(file) {
     const url = window.URL.createObjectURL(file);
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      console.log('LOAD_IMAGE=', file, '\nURL=', url, '\nDATA=', event.target.result);
-      this.setState({ url: url });
+    this.processImage(url, null);
+  }
+
+  isImage(fileOrBlob) {
+    return ((typeof(fileOrBlob.type) === 'string') 
+      && fileOrBlob.type.startsWith('image'));
+  }
+
+  processImage(url, data) {
+    console.log('PROCESS_IMAGE\n', url, '\nDATA\n', data);
+    let image = new Image();
+    image.onload = (e) => {
+      console.log('IMAGE_LOADED');
     };
-    reader.readAsDataURL(file);
+    image.src = url;
+    this.setState({ url: url });
   }
 
   render() {

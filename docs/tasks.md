@@ -17,11 +17,11 @@
 
 ## Style Explorer Tasks
 ### To Do
-* Add loader module
-* Parse a file
-* Parse a blob
-* Parse pixel values from source, save to state
+* Read image pixels
 * Display image in source component
+* Add loader module
+* Parse image pixels
+* Save pixel data to state
 * Add click/drag events to color picker
 * Set HSV values from click and drag
 * Update data reference
