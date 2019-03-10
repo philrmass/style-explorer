@@ -5,7 +5,7 @@ import styles from './SourceLoadForm.css';
 class SourceLoadForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { inputUrl: '', url: '' };
+    this.state = { inputUrl: '' };
     this.handleUrlChange = this.handleUrlChange.bind(this);
     this.handleUrlSubmit = this.handleUrlSubmit.bind(this);
     this.handleFileClick = this.handleFileClick.bind(this);
@@ -25,11 +25,7 @@ class SourceLoadForm extends React.Component {
     fetch(this.state.inputUrl)
       .then(response => response.blob())
       .then(blob => {
-        if(this.isImage(blob)) {
-          this.processImage(url, window.URL.createObjectURL(blob));
-        } else {
-          console.error('Failed to load image from ' + url);
-        }
+        this.loadImage(url, blob);
       });
   }
 
@@ -41,11 +37,7 @@ class SourceLoadForm extends React.Component {
   handleFileChange(event) {
     event.preventDefault();
     const file = this.fileInput.current.files[0];
-    if(this.isImage(file)) {
-      this.processImage(file.name, window.URL.createObjectURL(file));
-    } else {
-      console.error('Failed to load image from ' + file.name);
-    }
+    this.loadImage(file.name, file);
   }
 
   doNothing(event) {
@@ -57,10 +49,19 @@ class SourceLoadForm extends React.Component {
     event.stopPropagation();
     event.preventDefault();
     const file = event.dataTransfer.files[0];
-    if(this.isImage(file)) {
-      this.processImage(file.name, window.URL.createObjectURL(file));
+    this.loadImage(file.name, file);
+  }
+
+  loadImage(name, fileOrBlob) {
+    if(this.isImage(fileOrBlob)) {
+      const url = window.URL.createObjectURL(fileOrBlob);
+      let image = new Image();
+      image.onload = () => {
+        this.processImage(name, url, image);
+      };
+      image.src = url;
     } else {
-      console.error('Failed to load image from ' + file.name);
+      console.error('Failed to load image from ' + name);
     }
   }
 
@@ -69,14 +70,8 @@ class SourceLoadForm extends React.Component {
       && fileOrBlob.type.startsWith('image'));
   }
 
-  processImage(name, url) {
-    console.log('PROCESS_IMAGE\n', name, '\nURL\n', url);
-    let image = new Image();
-    image.onload = () => {
-      console.log('IMAGE_LOADED');
-    };
-    image.src = url;
-    this.setState({ url: url });
+  processImage(name, url, image) {
+    console.log('PROCESS_IMAGE\nname:', name , '\nurl:', url, '\nsize:', image.width, image.height);
   }
 
   render() {
@@ -108,7 +103,6 @@ class SourceLoadForm extends React.Component {
           <span className={styles.leftSpace}>or drop a file here</span>
           <input type='file' ref={this.fileInput} onChange={this.handleFileChange}/>
         </div>
-        <img src={this.state.url}/>
       </div>
     );
   }

@@ -47,7 +47,7 @@
 * Add source color reduce function for grouping
 * Save sources to indexdb
 * Update docs with actions, reducers, data
-* Add message for bad url/file load
+* Add message for bad url/file fetch or load
 #### Graphics
 * Create basic color picker from dom elements
 * Add rotating circle to color picker
