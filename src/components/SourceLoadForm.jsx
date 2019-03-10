@@ -7,6 +7,7 @@ class SourceLoadForm extends React.Component {
     super(props);
     this.handleFileClick = this.handleFileClick.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
+    this.handleFileDrop = this.handleFileDrop.bind(this);
     //this.handleChange = this.handleChange.bind(this);
     //this.handleFileSubmit = this.handleFileSubmit.bind(this);
     //this.handleUrlSubmit = this.handleUrlSubmit.bind(this);
@@ -22,6 +23,12 @@ class SourceLoadForm extends React.Component {
   handleFileChange(event) {
     event.preventDefault();
     console.log('file change', this.fileInput.current.files);
+  }
+
+  handleFileDrop(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    console.log('file drop', event.dataTransfer.files);
   }
   /*
   handleChange(event) {
@@ -43,11 +50,17 @@ class SourceLoadForm extends React.Component {
   render() {
     return (
       <div className={styles.sourceLoadForm}>
-        <Button onClick={this.handleFileClick}>
-          Click
-        </Button>
-        <span>or drop a file here</span>
-        <input type='file' ref={this.fileInput} onChange={this.handleFileChange}/>
+        <div 
+          style={{backgroundColor: 'red'}}
+          onDrop={this.handleFileDrop}
+          onDragEnter={(e) => {console.log('enter'); e.stopPropagation(); e.preventDefault();}}
+          onDragOver={(e) => {console.log('over'); e.stopPropagation(); e.preventDefault();}}>
+          <Button onClick={this.handleFileClick}>
+            Click
+          </Button>
+          <span>or drop a file here</span>
+          <input type='file' ref={this.fileInput} onChange={this.handleFileChange}/>
+        </div>
       </div>
     );
   }
