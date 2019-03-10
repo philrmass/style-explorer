@@ -1,11 +1,13 @@
 .sourceLoadForm {
+  height: 10em;
+  background-color: #004080;
 }
 
-.form {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
+input[type="file"] {
+  display: none;
 }
 
+/*
 .inputLabel {
   display: inline-block;
 }
@@ -27,3 +29,4 @@
 
 .input:focus {
 }
+*/

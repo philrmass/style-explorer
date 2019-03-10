@@ -40,7 +40,3 @@ input {
   font: inherit;
   outline: none;
 }
-
-input[type="file"] {
-  display: none;
-}
