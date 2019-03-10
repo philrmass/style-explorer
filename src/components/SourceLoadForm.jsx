@@ -22,10 +22,11 @@ class SourceLoadForm extends React.Component {
   handleUrlSubmit(event) {
     event.preventDefault();
     console.log('url submit', this.state.url);
+    const url = this.state.url;
     fetch(this.state.url)
       .then(response => response.blob())
       .then(blob => {
-        console.log('got blob', blob);
+        console.log('FETCH_IMAGE', blob, '\nurl', url);
       });
     this.setState({ url: ''});
   }
@@ -52,7 +53,12 @@ class SourceLoadForm extends React.Component {
   }
 
   handleFile(file) {
-    console.log('handle file', file);
+    const url = window.URL.createObjectURL(file);
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      console.log('LOAD_IMAGE=', file, '\nURL=', url, '\nDATA=', event.target.result);
+    };
+    reader.readAsDataURL(file);
   }
 
   render() {
@@ -62,7 +68,7 @@ class SourceLoadForm extends React.Component {
         onDragEnter={this.doNothing}
         onDragOver={this.doNothing}
         onDrop={this.handleFileDrop}>
-        <div>Load an image or website</div>
+        <div>Load an image</div>
         <div>
           <form onSubmit={this.handleUrlSubmit}>
             <input type='text' value={this.state.url} onChange={this.handleUrlChange}/>
