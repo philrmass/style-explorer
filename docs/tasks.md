@@ -1,9 +1,9 @@
 ## Style Explorer Features
 ### Necessary
-* Image display
 * Pixel data
 * Source from processed pixels data
 * Recent sources
+* Image display
 * Magnifier, click to set color
 * Dom color picker, set color, hsl display
 * Collapsibles, responsive layout, source grow
@@ -17,11 +17,15 @@
 
 ## Style Explorer Tasks
 ### To Do
-* Read image pixels
-* Display image in source component
+* Read image pixels, print info, hide canvas
+* Add action to add a source (url, name, w, h, pixelCount)
+* Test undefined, bad action, add source, in reducer
+* Add action to set the current source by url
+* Test undefined, bad action, set source, in reducer
+* Display image in source component by current source url
 * Add loader module
 * Parse image pixels
-* Save pixel data to state
+* Save pixel data to source on add
 * Add click/drag events to color picker
 * Set HSV values from click and drag
 * Update data reference
