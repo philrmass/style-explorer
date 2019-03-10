@@ -6,8 +6,8 @@ import styles from './Sources.css';
 function Sources() {
   return (
     <div className={styles.sources}>
-      <SourceList/>
       <SourceLoadForm/>
+      <SourceList/>
     </div>
   );
 }

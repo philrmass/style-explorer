@@ -2,34 +2,21 @@
   padding: var(--content-padding);
 }
 
-.sourceLoadForm span {
-  margin-left: var(--content-padding);
+.sourceLoadForm > div{
+  margin: 0.4em 0;
 }
 
-input[type="file"] {
+.sourceLoadForm input[type=text] {
+  padding: 0.1em 0.3em;
+  background-color: var(--mid-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.sourceLoadForm input[type=file] {
   display: none;
 }
 
-/*
-.inputLabel {
-  display: inline-block;
+.leftSpace {
+  margin-left: var(--content-padding);
 }
-
-.input {
-  display: inline-block;
-  width: 15em;
-  padding: 0.1em 0.3em;
-  border: 1px solid var(--light-text-color);
-  border-radius: 1px;
-  margin: 0 0.4em;
-  background-color: var(--mid-color);
-  color: var(--light-text-color);
-}
-
-.input:hover,
-.input:active {
-}
-
-.input:focus {
-}
-*/
