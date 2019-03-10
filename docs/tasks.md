@@ -33,7 +33,6 @@
 * Connect magnifier events to current color reducer
 * Show full source name on hover
 #### Data
-* Handle bad url load
 * Define ui state slice
 * Define currentSource state slice
 * Define sources state slice
@@ -48,6 +47,7 @@
 * Add source color reduce function for grouping
 * Save sources to indexdb
 * Update docs with actions, reducers, data
+* Add message for bad url/file load
 #### Graphics
 * Create basic color picker from dom elements
 * Add rotating circle to color picker

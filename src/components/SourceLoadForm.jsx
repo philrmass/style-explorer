@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from './Button';
 import styles from './SourceLoadForm.css';
-//??? check that file.type or blob.type begins with 'image'
 
 class SourceLoadForm extends React.Component {
   constructor(props) {
@@ -41,8 +40,12 @@ class SourceLoadForm extends React.Component {
 
   handleFileChange(event) {
     event.preventDefault();
-    console.log('type', this.fileInput.current.files[0].type);
-    this.handleFile(this.fileInput.current.files[0]);
+    const file = this.fileInput.current.files[0];
+    if(this.isImage(file)) {
+      this.processImage(file.name, window.URL.createObjectURL(file));
+    } else {
+      console.error('Failed to load image from ' + file.name);
+    }
   }
 
   doNothing(event) {
@@ -53,13 +56,12 @@ class SourceLoadForm extends React.Component {
   handleFileDrop(event) {
     event.stopPropagation();
     event.preventDefault();
-    console.log('type', event.dataTransfer.files[0].type);
-    this.handleFile(event.dataTransfer.files[0]);
-  }
-
-  handleFile(file) {
-    const url = window.URL.createObjectURL(file);
-    this.processImage(url, null);
+    const file = event.dataTransfer.files[0];
+    if(this.isImage(file)) {
+      this.processImage(file.name, window.URL.createObjectURL(file));
+    } else {
+      console.error('Failed to load image from ' + file.name);
+    }
   }
 
   isImage(fileOrBlob) {
@@ -67,10 +69,10 @@ class SourceLoadForm extends React.Component {
       && fileOrBlob.type.startsWith('image'));
   }
 
-  processImage(url, data) {
-    console.log('PROCESS_IMAGE\n', url, '\nDATA\n', data);
+  processImage(name, url) {
+    console.log('PROCESS_IMAGE\n', name, '\nURL\n', url);
     let image = new Image();
-    image.onload = (e) => {
+    image.onload = () => {
       console.log('IMAGE_LOADED');
     };
     image.src = url;
@@ -84,10 +86,14 @@ class SourceLoadForm extends React.Component {
         onDragEnter={this.doNothing}
         onDragOver={this.doNothing}
         onDrop={this.handleFileDrop}>
-        <div>Load an image</div>
+        <div>Load an image from the web</div>
         <div>
           <form onSubmit={this.handleUrlSubmit}>
-            <input type='text' value={this.state.inputUrl} onChange={this.handleUrlChange}/>
+            <input 
+              type='text' 
+              value={this.state.inputUrl} 
+              placeholder='Paste URL here'
+              onChange={this.handleUrlChange}/>
             <span className={styles.leftSpace}>
               <Button>
                 Load
