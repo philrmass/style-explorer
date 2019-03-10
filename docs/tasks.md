@@ -1,22 +1,23 @@
 ## Style Explorer Tasks
 
 ### To Do
-* Add source form as a controlled component
-* Load a local image
+* Add loader module
+* Parse a file
+* Parse a blob
+* Parse pixel values from source, save to state
+* Display image in source component
 * Add click/drag events to color picker
 * Set HSV values from click and drag
 * Update data reference
 
 #### Components
-* Read pixel values from source
-* Display image in source component
-* Load a url image
 * Create magnifier, display pixels at specific size
 * Add click/drag events to move magnifier
 * Add click/drag events to select color in magnifier
 * Connect magnifier events to current color reducer
-* Show full source item text on hover
+* Show full source name on hover
 #### Data
+* Handle bad url load
 * Define ui state slice
 * Define currentSource state slice
 * Define sources state slice
@@ -59,3 +60,6 @@
 * Add currentColor reducer tests
 * Dispatch color from color picker
 * Set color in color bar and picker from store/props
+* Add source form as a controlled component
+* Load a local image
+* Load a url image

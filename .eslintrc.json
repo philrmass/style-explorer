@@ -22,7 +22,7 @@
     ],
     "rules": {
         "react/prefer-stateless-function": 1,
-        "react/no-unused-state": 2,
+        "react/no-unused-state": 1,
         "indent": [ "error", 2, {"SwitchCase": 1} ],
         "linebreak-style": [ "error", "unix" ],
         "quotes": [ "error", "single" ],

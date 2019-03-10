@@ -5,17 +5,29 @@ import styles from './SourceLoadForm.css';
 class SourceLoadForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { url: '' };
     this.handleUrlChange = this.handleUrlChange.bind(this);
+    this.handleUrlSubmit = this.handleUrlSubmit.bind(this);
     this.handleFileClick = this.handleFileClick.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
     this.handleFileDrop = this.handleFileDrop.bind(this);
-    //this.handleUrlSubmit = this.handleUrlSubmit.bind(this);
     this.fileInput = React.createRef();
   }
 
   handleUrlChange(event) {
     event.preventDefault();
-    console.log('url change', event.target.value);
+    this.setState({ url: event.target.value });
+  }
+
+  handleUrlSubmit(event) {
+    event.preventDefault();
+    console.log('url submit', this.state.url);
+    fetch(this.state.url)
+      .then(response => response.blob())
+      .then(blob => {
+        console.log('got blob', blob);
+      });
+    this.setState({ url: ''});
   }
 
   handleFileClick(event) {
@@ -53,7 +65,7 @@ class SourceLoadForm extends React.Component {
         <div>Load an image or website</div>
         <div>
           <form onSubmit={this.handleUrlSubmit}>
-            <input type='text' onChange={this.handleUrlChange}/>
+            <input type='text' value={this.state.url} onChange={this.handleUrlChange}/>
             <span className={styles.leftSpace}>
               <Button>
                 Load
