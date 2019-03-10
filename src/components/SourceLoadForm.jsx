@@ -5,7 +5,7 @@ import styles from './SourceLoadForm.css';
 class SourceLoadForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { url: '' };
+    this.state = { inputUrl: '', url: '' };
     this.handleUrlChange = this.handleUrlChange.bind(this);
     this.handleUrlSubmit = this.handleUrlSubmit.bind(this);
     this.handleFileClick = this.handleFileClick.bind(this);
@@ -16,19 +16,20 @@ class SourceLoadForm extends React.Component {
 
   handleUrlChange(event) {
     event.preventDefault();
-    this.setState({ url: event.target.value });
+    this.setState({ inputUrl: event.target.value });
   }
 
   handleUrlSubmit(event) {
     event.preventDefault();
-    console.log('url submit', this.state.url);
-    const url = this.state.url;
-    fetch(this.state.url)
+    console.log('url submit', this.state.inputUrl);
+    const url = this.state.inputUrl;
+    fetch(this.state.inputUrl)
       .then(response => response.blob())
       .then(blob => {
         console.log('FETCH_IMAGE', blob, '\nurl', url);
+        this.setState({ url: url });
       });
-    this.setState({ url: ''});
+    this.setState({ inputUrl: ''});
   }
 
   handleFileClick(event) {
@@ -57,6 +58,7 @@ class SourceLoadForm extends React.Component {
     const reader = new FileReader();
     reader.onload = (event) => {
       console.log('LOAD_IMAGE=', file, '\nURL=', url, '\nDATA=', event.target.result);
+      this.setState({ url: url });
     };
     reader.readAsDataURL(file);
   }
@@ -71,7 +73,7 @@ class SourceLoadForm extends React.Component {
         <div>Load an image</div>
         <div>
           <form onSubmit={this.handleUrlSubmit}>
-            <input type='text' value={this.state.url} onChange={this.handleUrlChange}/>
+            <input type='text' value={this.state.inputUrl} onChange={this.handleUrlChange}/>
             <span className={styles.leftSpace}>
               <Button>
                 Load
@@ -86,6 +88,7 @@ class SourceLoadForm extends React.Component {
           <span className={styles.leftSpace}>or drop a file here</span>
           <input type='file' ref={this.fileInput} onChange={this.handleFileChange}/>
         </div>
+        <img src={this.state.url}/>
       </div>
     );
   }

@@ -1,5 +1,21 @@
-## Style Explorer Tasks
+## Style Explorer Features
+### Necessary
+* Image display
+* Pixel data
+* Source from processed pixels data
+* Recent sources
+* Magnifier, click to set color
+* Dom color picker, set color, hsl display
+* Collapsibles, responsive layout, source grow
+* Copy icon
+* 2D HSL graph
+### Optional
+* 3D HSL graph
+* Color picker background pixels
+* Saved colors
+* Save & delete sources
 
+## Style Explorer Tasks
 ### To Do
 * Add loader module
 * Parse a file
