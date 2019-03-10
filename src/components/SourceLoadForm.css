@@ -1,6 +1,9 @@
 .sourceLoadForm {
-  height: 10em;
-  background-color: #004080;
+  padding: var(--content-padding);
+}
+
+.sourceLoadForm span {
+  margin-left: var(--content-padding);
 }
 
 input[type="file"] {
