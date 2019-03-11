@@ -1,8 +1,14 @@
-import { ADD_SOURCE } from '../constants/actionTypes';
+import * as types from '../constants/actionTypes';
 
 export function setColorHex(hex) {
   return {
-    type: ADD_SOURCE,
+    type: types.SET_COLOR_HEX,
     hex
+  };
+}
+
+export function addSource() {
+  return {
+    type: types.ADD_SOURCE,
   };
 }

@@ -1,4 +1,4 @@
-import { SET_COLOR_HEX } from '../../src/constants/actionTypes';
+import { setColorHex } from '../../src/actions';
 import currentColor from '../../src/reducers/currentColor';
 import { defaultState } from '../../src/reducers/currentColor';
 
@@ -23,6 +23,6 @@ describe('currentColor', () => {
   });
 
   test('Should set color from hex value', () => {
-    expect(currentColor({}, { type: SET_COLOR_HEX, hex: colorHex })).toEqual(color);
+    expect(currentColor({}, setColorHex(colorHex))).toEqual(color);
   });
 });
