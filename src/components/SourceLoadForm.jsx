@@ -5,6 +5,8 @@ import { addSource, setSource } from '../actions';
 import Button from './Button';
 import styles from './SourceLoadForm.css';
 
+const USE_INITIAL_IMAGE = true;
+
 class SourceLoadForm extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,12 @@ class SourceLoadForm extends React.Component {
     this.fileInput = React.createRef();
   }
 
+  componentDidMount() {
+    if(USE_INITIAL_IMAGE) {
+      this.fetchUrlImage('https://i.imgur.com/eoZKY2v.jpg');
+    }
+  }
+
   handleUrlChange(event) {
     event.preventDefault();
     this.setState({ inputUrl: event.target.value });
@@ -24,12 +32,7 @@ class SourceLoadForm extends React.Component {
 
   handleUrlSubmit(event) {
     event.preventDefault();
-    const url = this.state.inputUrl;
-    fetch(this.state.inputUrl)
-      .then(response => response.blob())
-      .then(blob => {
-        this.loadImage(url, blob);
-      });
+    this.fetchUrlImage(this.state.inputUrl);
   }
 
   handleFileClick(event) {
@@ -53,6 +56,14 @@ class SourceLoadForm extends React.Component {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
     this.loadImage(file.name, file);
+  }
+
+  fetchUrlImage(url) {
+    fetch(url)
+      .then(response => response.blob())
+      .then(blob => {
+        this.loadImage(url, blob);
+      });
   }
 
   loadImage(name, fileOrBlob) {
