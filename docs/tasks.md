@@ -1,8 +1,7 @@
 ## Style Explorer Features
 ### Necessary
-* SOURCE FROM PIXELS
-* RECENT SOURCES
 * IMAGE DISPLAY
+* SOURCE FROM PIXELS
 * MAGNIFIER, SET COLOR ON CLICK
 * DOM COLOR PICKER, SET COLOR, HSL DISPLAY
 * COLLAPSIBLES, RESPONSIVE LAYOUT, SOURCE GROW
@@ -16,16 +15,11 @@
 
 ## Style Explorer Tasks
 ### To Do
-* Add action for adding source
-* Add constant, action to add a source (url, name, w, h, pixelCount)
-* Test undefined, bad action, add source, in sources reducer
-* Add action for setting color
 * Add action to set the current source by url
 * Test undefined, bad action, set source, in currentSource reducer
 * Display image in source component by current source url
-* Add loader module
-* Parse image pixels
-* Save pixel data to source on add
+* Set current source when clicking on recent source
+* Parse image data, add colors to sources
 * Add click/drag events to color picker
 * Set HSV values from click and drag
 * Update data reference
@@ -38,20 +32,12 @@
 * Show full source name on hover
 #### Data
 * Define ui state slice
-* Define currentSource state slice
-* Define sources state slice
-* Define actions
-* Define action creators
-* Add color conversion file
-* Add current color selection reducer and actions
-* Add test suite per reducer
 * Process source pixels and set source data
-* Add hsv to rgb conversion function
-* Add rgb to hsv conversion function
 * Add source color reduce function for grouping
+* Add hsv to rgb conversion function
 * Save sources to indexdb
-* Update docs with actions, reducers, data
 * Add message for bad url/file fetch or load
+* Update docs with actions, reducers, data
 #### Graphics
 * Create basic color picker from dom elements
 * Add rotating circle to color picker
@@ -84,3 +70,12 @@
 * Load a local image
 * Load a url image
 * Read image pixels, print info, hide canvas
+* Add action for adding source
+* Test undefined, bad action, add source, in sources reducer
+* Add action for setting color
+* Define actions
+* Define action creators
+* Add color conversion file
+* Add current color selection reducer and actions
+* Add test suite per reducer
+* Add rgb to hsv conversion function

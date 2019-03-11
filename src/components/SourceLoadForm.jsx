@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addSource } from '../actions';
 import Button from './Button';
 import styles from './SourceLoadForm.css';
 
@@ -77,9 +80,8 @@ class SourceLoadForm extends React.Component {
     canvas.height = image.height;
     ctx.drawImage(image, 0, 0);
     image.style.display = 'none';
-    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    console.log('IMAGE\n', name , '\n', url);
-    console.log('pixels', pixels.width, 'x', pixels.height, pixels.data.length);
+    const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    this.props.dispatch(addSource(name, url, data));
   }
 
   render() {
@@ -117,4 +119,8 @@ class SourceLoadForm extends React.Component {
   }
 }
 
-export default SourceLoadForm;
+SourceLoadForm.propTypes = {
+  dispatch: PropTypes.func,
+};
+
+export default connect()(SourceLoadForm);

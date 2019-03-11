@@ -1,19 +1,16 @@
-//import { addSource } from '../../src/actions';
+import * as types from '../../src/constants/actionTypes';
 import sources from '../../src/reducers/sources';
 
 describe('sources', () => {
-  /*
-  const colorHex = '6b2097';
-  const color = { 
-    hex: colorHex,
-    red: 107,
-    green: 32,
-    blue: 151,
-    hue: 277.8,
-    sat: 65.0,
-    light: 35.9
+  const addId = 'url1';
+  const addSource = { name: 'name1', url: 'url1' };
+  const beforeAdd = {
+    'url0': { name: 'name0', url: 'url0' }
   };
-  */
+  const afterAdd = {
+    'url0': { name: 'name0', url: 'url0' },
+    'url1': { name: 'name1', url: 'url1' }
+  };
 
   test('Should return default state for undefined state', () => {
     expect(sources(undefined, { type: null })).toEqual({});
@@ -23,9 +20,7 @@ describe('sources', () => {
     expect(sources({}, { type: null })).toEqual({});
   });
 
-  /*
-  test('Should set color from hex value', () => {
-    expect(sources({}, { type: SET_COLOR_HEX, hex: colorHex })).toEqual(color);
+  test('Should add source from object and id', () => {
+    expect(sources(beforeAdd, { type: types.ADD_SOURCE, id: addId, source: addSource})).toEqual(afterAdd);
   });
-  */
 });

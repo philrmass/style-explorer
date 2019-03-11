@@ -10,5 +10,5 @@
 }
 
 .sourceItem:hover {
-  color: red;
+  color: var(--highlight-color);
 }
