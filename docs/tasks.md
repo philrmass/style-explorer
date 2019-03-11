@@ -43,6 +43,7 @@
 * Add mouse movements to rotate cube
 #### Style/Layout
 * Create copy icons from dom elements
+* Set source component to grow
 * Resize source to take available space
 * Resize picker to be full width on mobile
 * Create icon and android/ios icon set

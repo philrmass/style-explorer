@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './Source.css';
 
-const MAG_WIDTH = 200;
-const MAG_HEIGHT = 100;
+const MAG_X_PIXELS = 20;
+const MAG_Y_PIXELS = 10;
+const MAG_SIZE = 10;
+const MAG_WIDTH = (MAG_SIZE * MAG_X_PIXELS); 
+const MAG_HEIGHT = (MAG_SIZE * MAG_Y_PIXELS); 
 
 class Source extends React.Component {
   constructor(props) {
@@ -13,36 +16,57 @@ class Source extends React.Component {
     this.magCanvas = React.createRef();
   }
 
-  renderSampleCanvas(url) {
+  renderSample(url) {
     let canvas = this.sampleCanvas.current;
     let ctx = canvas.getContext('2d');
     const image = new Image();
+    image.onload = () => { 
+      console.log('img load', image.width, image.height, image.complete);
+    };
     image.src = url;
     canvas.width = image.width;
     canvas.height = image.height;
     ctx.drawImage(image, 0, 0);
     image.style.display = 'none';
+    console.log('samp', canvas.width, canvas.height, image.complete);
+  }
+
+  renderMagnifier(x, y) {
+    let canvas = this.magCanvas.current;
+    let ctx = canvas.getContext('2d');
+    let image = this.sampleCanvas.current;
+    ctx.imageSmoothingEnabled = false;
+    console.log('mag', x, y, image.width, image.height);
+    if(image.width && image.height) {
+      ctx.drawImage(image, x, y, MAG_X_PIXELS, MAG_Y_PIXELS, 0, 0, MAG_WIDTH, MAG_HEIGHT); 
+    }
   }
 
   getSnapshotBeforeUpdate(prevProps) {
     if(prevProps.url !== this.props.url) {
-      this.renderSampleCanvas(this.props.url);
+      this.renderSample(this.props.url);
     }
   }
 
+  componentDidUpdate() {
+    //??? pass in props x, y
+    this.renderMagnifier(10, 10);
+  }
+
   render() {
+    console.log('render');
     return (
       <div>
+        <div>
+          <canvas 
+            id='magCanvas' 
+            ref={this.magCanvas}
+            width={(MAG_WIDTH) + 'px'}
+            height={(MAG_HEIGHT) + 'px'}
+            className={styles.magCanvas}>
+          </canvas>
+        </div>
         {this.props.url && <div className={styles.source}>
-          <div>
-            <canvas 
-              id='magCanvas' 
-              ref={this.magCanvas}
-              width={MAG_WIDTH + 'px'}
-              height={MAG_HEIGHT + 'px'}
-              className={styles.magCanvas}>
-            </canvas>
-          </div>
           <div className={styles.imageWrapper}>
             <img className={styles.image} src={this.props.url}/>
             <div className={styles.magCursor}></div>
