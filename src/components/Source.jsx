@@ -9,6 +9,25 @@ const MAG_HEIGHT = 100;
 class Source extends React.Component {
   constructor(props) {
     super(props);
+    this.sampleCanvas = React.createRef();
+    this.magCanvas = React.createRef();
+  }
+
+  renderSampleCanvas(url) {
+    let canvas = this.sampleCanvas.current;
+    let ctx = canvas.getContext('2d');
+    const image = new Image();
+    image.src = url;
+    canvas.width = image.width;
+    canvas.height = image.height;
+    ctx.drawImage(image, 0, 0);
+    image.style.display = 'none';
+  }
+
+  getSnapshotBeforeUpdate(prevProps) {
+    if(prevProps.url !== this.props.url) {
+      this.renderSampleCanvas(this.props.url);
+    }
   }
 
   render() {
@@ -18,6 +37,7 @@ class Source extends React.Component {
           <div>
             <canvas 
               id='magCanvas' 
+              ref={this.magCanvas}
               width={MAG_WIDTH + 'px'}
               height={MAG_HEIGHT + 'px'}
               className={styles.magCanvas}>
@@ -28,7 +48,11 @@ class Source extends React.Component {
             <div className={styles.magCursor}></div>
           </div>
         </div>}
-        <canvas id='sampleCanvas' className={styles.sampleCanvas}></canvas>
+        <canvas 
+          id='sampleCanvas' 
+          ref={this.sampleCanvas}
+          className={styles.sampleCanvas}>
+        </canvas>
       </div>
     );
   }
