@@ -1,9 +1,10 @@
 import * as types from '../constants/actionTypes';
+import Color from '../color';
 
 export function setColorHex(hex) {
   return {
-    type: types.SET_COLOR_HEX,
-    hex
+    type: types.SET_COLOR,
+    color: Color.hexToColor(hex)
   };
 }
 

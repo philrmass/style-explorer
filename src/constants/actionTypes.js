@@ -1,2 +1,2 @@
-export const SET_COLOR_HEX = 'SET_COLOR_HEX';
+export const SET_COLOR = 'SET_COLOR';
 export const ADD_SOURCE = 'ADD_SOURCE';

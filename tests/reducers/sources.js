@@ -1,6 +1,5 @@
-//import { SET_COLOR_HEX } from '../../src/constants/actionTypes';
+//import { addSource } from '../../src/actions';
 import sources from '../../src/reducers/sources';
-//import { defaultState } from '../../src/reducers/sources';
 
 describe('sources', () => {
   /*
