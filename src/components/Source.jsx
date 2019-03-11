@@ -6,26 +6,32 @@ import styles from './Source.css';
 const MAG_WIDTH = 200;
 const MAG_HEIGHT = 100;
 
-function Source({url}) {
-  return (
-    <div>
-      {url && <div className={styles.source}>
-        <div>
-          <canvas 
-            id='magCanvas' 
-            width={MAG_WIDTH + 'px'}
-            height={MAG_HEIGHT + 'px'}
-            className={styles.magCanvas}>
-          </canvas>
-        </div>
-        <div className={styles.imageWrapper}>
-          <img className={styles.image} src={url}/>
-          <div className={styles.magCursor}></div>
-        </div>
-      </div>}
-      <canvas id='sampleCanvas' className={styles.sampleCanvas}></canvas>
-    </div>
-  );
+class Source extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        {this.props.url && <div className={styles.source}>
+          <div>
+            <canvas 
+              id='magCanvas' 
+              width={MAG_WIDTH + 'px'}
+              height={MAG_HEIGHT + 'px'}
+              className={styles.magCanvas}>
+            </canvas>
+          </div>
+          <div className={styles.imageWrapper}>
+            <img className={styles.image} src={this.props.url}/>
+            <div className={styles.magCursor}></div>
+          </div>
+        </div>}
+        <canvas id='sampleCanvas' className={styles.sampleCanvas}></canvas>
+      </div>
+    );
+  }
 }
 
 Source.propTypes = {
