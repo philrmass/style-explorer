@@ -34,6 +34,7 @@
 * Define ui state slice
 * Process source pixels and set source data
 * Add source color reduce function for grouping
+* Sort sources by timeAdded
 * Add hsv to rgb conversion function
 * Save sources to indexdb
 * Add message for bad url/file fetch or load

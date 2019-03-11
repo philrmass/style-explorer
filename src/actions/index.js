@@ -21,3 +21,10 @@ export function addSource(name, url, imageData) {
     }
   };
 }
+
+export function setSource(url) {
+  return {
+    type: types.SET_SOURCE,
+    url
+  };
+}

@@ -4,7 +4,8 @@ import * as currentColor from '../../src/reducers/currentColor';
 describe('rootReducer', () => {
   const defaultState = { 
     currentColor: currentColor.defaultState,
-    sources: {}
+    sources: {},
+    currentSource: ''
   };
 
   test('Should return default state for undefined state', () => {
