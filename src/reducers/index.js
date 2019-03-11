@@ -1,12 +1,14 @@
 import currentColor from './currentColor';
-import sources from './sources';
 import currentSource from './currentSource';
+import sources from './sources';
+import ui from './ui';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
   currentColor,
   sources,
-  currentSource
+  currentSource,
+  ui
 });
 
 export default rootReducer;
