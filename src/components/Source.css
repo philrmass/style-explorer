@@ -2,24 +2,23 @@
   position: relative;
 }
 
-.imageWrapper {
+.imageWrap {
+  display: inline-block;
   position: relative;
 }
 
 .image {
-  max-height: 200px;
+  max-width: 100%;
   width: auto;
-  border: 1px solid var(--border-color);
 }
 
 .magCanvas {
-  border: 1px solid var(--border-color);
 }
 
 .magCursor {
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 100px;
+  left: 100px;
   width: 20px;
   height: 10px;
   border: 1px solid var(--mag-cursor-color);

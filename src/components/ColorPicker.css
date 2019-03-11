@@ -1,7 +1,6 @@
 .colorPicker {
   min-height: 150px;
   min-width: 100px;
-  border: 1px solid var(--border-color);
   background-color: #808080;
   font-family: monospace;
 }

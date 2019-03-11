@@ -12,8 +12,16 @@ const MAG_HEIGHT = (MAG_SIZE * MAG_Y_PIXELS);
 class Source extends React.Component {
   constructor(props) {
     super(props);
+    this.handleImageClick = this.handleImageClick.bind(this);
     this.sampleCanvas = React.createRef();
     this.magCanvas = React.createRef();
+  }
+
+  getSnapshotBeforeUpdate(prevProps) {
+    this.renderSample(prevProps.url, this.props.url)
+      .then((image) => {
+        this.renderMagnifier(image, this.props.magX, this.props.magY);
+      });
   }
 
   renderSample(lastUrl, url) {
@@ -25,6 +33,7 @@ class Source extends React.Component {
         image.onload = () => { 
           canvas.width = image.width;
           canvas.height = image.height;
+          //??? setFullSize(fw, fh);
           ctx.drawImage(image, 0, 0);
           image.style.display = 'none';
           resolve(canvas);
@@ -45,12 +54,14 @@ class Source extends React.Component {
     }
   }
 
-  getSnapshotBeforeUpdate(prevProps) {
-    this.renderSample(prevProps.url, this.props.url)
-      .then((image) => {
-        //??? pass in props x, y
-        this.renderMagnifier(image, 10, 10);
-      });
+  handleImageClick(event) {
+    let wrap = event.target && event.target.closest('#imageWrap');
+    let rect = wrap.getBoundingClientRect();
+    console.log('DIV');
+    console.log('  x,y', event.clientX - rect.left, event.clientY - rect.top);
+    console.log('  dw,dh', rect.width, rect.height);
+    console.log('  fw,fh', this.sampleCanvas.current.width, this.sampleCanvas.current.height);
+    //??? setMagnifierPosition(x, y, dw, dh);
   }
 
   render() {
@@ -66,7 +77,10 @@ class Source extends React.Component {
           </canvas>
         </div>
         {this.props.url && <div className={styles.source}>
-          <div className={styles.imageWrapper}>
+          <div 
+            id='imageWrap' 
+            className={styles.imageWrap} 
+            onClick={this.handleImageClick}>
             <img className={styles.image} src={this.props.url}/>
             <div className={styles.magCursor}></div>
           </div>
@@ -82,11 +96,17 @@ class Source extends React.Component {
 }
 
 Source.propTypes = {
-  url: PropTypes.string
+  url: PropTypes.string,
+  magX: PropTypes.number,
+  magY: PropTypes.number
 };
 
 function mapStateToProps(state) {
-  return { url: state.currentSource };
+  return { 
+    url: state.currentSource,
+    magX: state.ui.magX,
+    magY: state.ui.magY
+  };
 }
 
 export default connect(mapStateToProps)(Source);
