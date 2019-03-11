@@ -16,19 +16,21 @@ class Source extends React.Component {
     this.magCanvas = React.createRef();
   }
 
-  renderSample(url) {
-    let canvas = this.sampleCanvas.current;
-    let ctx = canvas.getContext('2d');
-    const image = new Image();
-    image.onload = () => { 
-      console.log('img load', image.width, image.height, image.complete);
-    };
-    image.src = url;
-    canvas.width = image.width;
-    canvas.height = image.height;
-    ctx.drawImage(image, 0, 0);
-    image.style.display = 'none';
-    console.log('samp', canvas.width, canvas.height, image.complete);
+  renderSample(lastUrl, url) {
+    if(lastUrl !== url) {
+      let canvas = this.sampleCanvas.current;
+      let ctx = canvas.getContext('2d');
+      const image = new Image();
+      image.onload = () => { 
+        console.log('img load', image.width, image.height, image.complete);
+      };
+      image.src = url;
+      canvas.width = image.width;
+      canvas.height = image.height;
+      ctx.drawImage(image, 0, 0);
+      image.style.display = 'none';
+      console.log('samp', canvas.width, canvas.height, image.complete);
+    }
   }
 
   renderMagnifier(x, y) {
@@ -43,12 +45,7 @@ class Source extends React.Component {
   }
 
   getSnapshotBeforeUpdate(prevProps) {
-    if(prevProps.url !== this.props.url) {
-      this.renderSample(this.props.url);
-    }
-  }
-
-  componentDidUpdate() {
+    this.renderSample(prevProps.url, this.props.url);
     //??? pass in props x, y
     this.renderMagnifier(10, 10);
   }
