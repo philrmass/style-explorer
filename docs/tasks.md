@@ -1,9 +1,8 @@
 ## Style Explorer Features
 ### Necessary
-* IMAGE DISPLAY
-* SOURCE FROM PIXELS
 * MAGNIFIER, SET COLOR ON CLICK
 * DOM COLOR PICKER, SET COLOR, HSL DISPLAY
+* SOURCE FROM PIXELS
 * COLLAPSIBLES, RESPONSIVE LAYOUT, SOURCE GROW
 * COPY ICON
 * 2D HSL GRAPH
@@ -15,27 +14,22 @@
 
 ## Style Explorer Tasks
 ### To Do
-* Add action to set the current source by url
-* Test undefined, bad action, set source, in currentSource reducer
-* Display image in source component by current source url
-* Set current source when clicking on recent source
-* Parse image data, add colors to sources
-* Add click/drag events to color picker
-* Set HSV values from click and drag
-* Update data reference
-
-#### Components
 * Create magnifier, display pixels at specific size
 * Add click/drag events to move magnifier
-* Add click/drag events to select color in magnifier
-* Connect magnifier events to current color reducer
+* Add click/drag events to set color from magnifier
+* Add click/drag events to color picker
+* Set HSL values from click and drag
+* Add HSL to RGB conversion function
+* Update data reference
+* Parse source image data, add colors key to sources
+* Add source color reduce function for grouping
+* Add test for soure image data processing
+
+#### Components
 * Show full source name on hover
 #### Data
 * Define ui state slice
-* Process source pixels and set source data
-* Add source color reduce function for grouping
 * Sort sources by timeAdded
-* Add hsv to rgb conversion function
 * Save sources to indexdb
 * Add message for bad url/file fetch or load
 * Update docs with actions, reducers, data
@@ -63,7 +57,7 @@
 * Remove components (SearchPane, SourceContainer, SourceDisplay, ToolBar, ToolDisplay)
 * Add redux store, provider, and subscibe to monitor
 * Dispatch color from color picker
-* Add color conversions hex to rgb & hsv
+* Add color conversions hex to RGB & HSL
 * Add color tests
 * Add currentColor reducer tests
 * Dispatch color from color picker
@@ -80,4 +74,8 @@
 * Add color conversion file
 * Add current color selection reducer and actions
 * Add test suite per reducer
-* Add rgb to hsv conversion function
+* Add RGB to HSL conversion function
+* Add action to set the current source by url
+* Test undefined, bad action, set source, in currentSource reducer
+* Display image in source component by current source url
+* Set current source when clicking on recent source

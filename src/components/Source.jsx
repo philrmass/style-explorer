@@ -1,15 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Magnifier from './Magnifier';
 import styles from './Source.css';
-import source from '../assets/images/sourceSample0.jpg';
 
-function Source() {
+function Source({url}) {
   return (
     <div className={styles.source}>
-      <img className={styles.image} src={source}/>
-      <Magnifier />
+      {url && 
+        <div>
+          <img className={styles.image} src={url}/>
+          <Magnifier />
+        </div>}
     </div>
   );
 }
 
-export default Source;
+Source.propTypes = {
+  url: PropTypes.string
+};
+
+function mapStateToProps(state) {
+  return { url: state.currentSource };
+}
+
+export default connect(mapStateToProps)(Source);
