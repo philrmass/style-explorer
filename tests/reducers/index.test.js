@@ -3,7 +3,8 @@ import * as currentColor from '../../src/reducers/currentColor';
 
 describe('rootReducer', () => {
   const defaultState = { 
-    currentColor: currentColor.defaultState
+    currentColor: currentColor.defaultState,
+    sources: {}
   };
 
   test('Should return default state for undefined state', () => {

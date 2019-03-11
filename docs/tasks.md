@@ -16,8 +16,10 @@
 
 ## Style Explorer Tasks
 ### To Do
+* Add action for adding source
 * Add constant, action to add a source (url, name, w, h, pixelCount)
 * Test undefined, bad action, add source, in sources reducer
+* Add action for setting color
 * Add action to set the current source by url
 * Test undefined, bad action, set source, in currentSource reducer
 * Display image in source component by current source url
