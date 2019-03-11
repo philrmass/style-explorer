@@ -28,3 +28,11 @@ export function setSource(url) {
     url
   };
 }
+
+export function setMagnifierPosition(x, y) {
+  return {
+    type: types.SET_MAGNIFIER_POSITION,
+    x,
+    y
+  };
+}
