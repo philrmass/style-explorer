@@ -39,6 +39,7 @@
 * Save sources to indexdb
 * Add message for bad url/file fetch or load
 * Update docs with actions, reducers, data
+* Add a default source or sources
 #### Graphics
 * Create basic color picker from dom elements
 * Add rotating circle to color picker

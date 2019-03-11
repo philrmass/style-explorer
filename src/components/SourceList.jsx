@@ -14,7 +14,7 @@ function SourceList({ sources }) {
           <SourceItem 
             key={source.url} 
             name={source.name}
-            url={source.name} />
+            url={source.url} />
         );
       })}
     </div>

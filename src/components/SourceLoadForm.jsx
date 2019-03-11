@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addSource } from '../actions';
+import { addSource, setSource } from '../actions';
 import Button from './Button';
 import styles from './SourceLoadForm.css';
 
@@ -82,6 +82,7 @@ class SourceLoadForm extends React.Component {
     image.style.display = 'none';
     const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
     this.props.dispatch(addSource(name, url, data));
+    this.props.dispatch(setSource(url));
   }
 
   render() {
