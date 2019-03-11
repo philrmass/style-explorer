@@ -17,41 +17,43 @@ class Source extends React.Component {
   }
 
   renderSample(lastUrl, url) {
-    if(lastUrl !== url) {
-      let canvas = this.sampleCanvas.current;
-      let ctx = canvas.getContext('2d');
-      const image = new Image();
-      image.onload = () => { 
-        console.log('img load', image.width, image.height, image.complete);
-      };
-      image.src = url;
-      canvas.width = image.width;
-      canvas.height = image.height;
-      ctx.drawImage(image, 0, 0);
-      image.style.display = 'none';
-      console.log('samp', canvas.width, canvas.height, image.complete);
-    }
+    return new Promise((resolve) => {
+      if(lastUrl !== url) {
+        let canvas = this.sampleCanvas.current;
+        let ctx = canvas.getContext('2d');
+        const image = new Image();
+        image.onload = () => { 
+          canvas.width = image.width;
+          canvas.height = image.height;
+          ctx.drawImage(image, 0, 0);
+          image.style.display = 'none';
+          resolve(canvas);
+        };
+        image.src = url;
+      } else {
+        resolve(this.sampleCanvas.current);
+      }
+    });
   }
 
-  renderMagnifier(x, y) {
+  renderMagnifier(image, x, y) {
     let canvas = this.magCanvas.current;
     let ctx = canvas.getContext('2d');
-    let image = this.sampleCanvas.current;
     ctx.imageSmoothingEnabled = false;
-    console.log('mag', x, y, image.width, image.height);
     if(image.width && image.height) {
       ctx.drawImage(image, x, y, MAG_X_PIXELS, MAG_Y_PIXELS, 0, 0, MAG_WIDTH, MAG_HEIGHT); 
     }
   }
 
   getSnapshotBeforeUpdate(prevProps) {
-    this.renderSample(prevProps.url, this.props.url);
-    //??? pass in props x, y
-    this.renderMagnifier(10, 10);
+    this.renderSample(prevProps.url, this.props.url)
+      .then((image) => {
+        //??? pass in props x, y
+        this.renderMagnifier(image, 10, 10);
+      });
   }
 
   render() {
-    console.log('render');
     return (
       <div>
         <div>
