@@ -1,27 +1,25 @@
 ## Style Explorer Features
 ### Necessary
-* Pixel data
-* Source from processed pixels data
-* Recent sources
-* Image display
-* Magnifier, click to set color
-* Dom color picker, set color, hsl display
-* Collapsibles, responsive layout, source grow
-* Copy icon
-* 2D HSL graph
+* SOURCE FROM PIXELS
+* RECENT SOURCES
+* IMAGE DISPLAY
+* MAGNIFIER, SET COLOR ON CLICK
+* DOM COLOR PICKER, SET COLOR, HSL DISPLAY
+* COLLAPSIBLES, RESPONSIVE LAYOUT, SOURCE GROW
+* COPY ICON
+* 2D HSL GRAPH
 ### Optional
-* 3D HSL graph
-* Color picker background pixels
-* Saved colors
-* Save & delete sources
+* 3D HSL GRAPH
+* COLOR PICKER BACKGROUND PIXELS
+* SAVED COLORS
+* SAVE & DELETE SOURCES
 
 ## Style Explorer Tasks
 ### To Do
-* Read image pixels, print info, hide canvas
-* Add action to add a source (url, name, w, h, pixelCount)
-* Test undefined, bad action, add source, in reducer
+* Add constant, action to add a source (url, name, w, h, pixelCount)
+* Test undefined, bad action, add source, in sources reducer
 * Add action to set the current source by url
-* Test undefined, bad action, set source, in reducer
+* Test undefined, bad action, set source, in currentSource reducer
 * Display image in source component by current source url
 * Add loader module
 * Parse image pixels
@@ -83,3 +81,4 @@
 * Add source form as a controlled component
 * Load a local image
 * Load a url image
+* Read image pixels, print info, hide canvas

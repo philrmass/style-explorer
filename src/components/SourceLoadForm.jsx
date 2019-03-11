@@ -71,7 +71,15 @@ class SourceLoadForm extends React.Component {
   }
 
   processImage(name, url, image) {
-    console.log('PROCESS_IMAGE\nname:', name , '\nurl:', url, '\nsize:', image.width, image.height);
+    let canvas = document.getElementById('loadCanvas');
+    let ctx = canvas.getContext('2d');
+    canvas.width = image.width;
+    canvas.height = image.height;
+    ctx.drawImage(image, 0, 0);
+    image.style.display = 'none';
+    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    console.log('IMAGE\n', name , '\n', url);
+    console.log('pixels', pixels.width, 'x', pixels.height, pixels.data.length);
   }
 
   render() {
@@ -103,6 +111,7 @@ class SourceLoadForm extends React.Component {
           <span className={styles.leftSpace}>or drop a file here</span>
           <input type='file' ref={this.fileInput} onChange={this.handleFileChange}/>
         </div>
+        <canvas id='loadCanvas' className={styles.loadCanvas}></canvas>
       </div>
     );
   }

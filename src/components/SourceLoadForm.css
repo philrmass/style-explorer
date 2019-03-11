@@ -24,3 +24,7 @@
 .leftSpace {
   margin-left: var(--content-padding);
 }
+
+.loadCanvas {
+  display: none;
+}
