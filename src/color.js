@@ -87,50 +87,40 @@ class Color {
 
   static hslToRgb(hsl) {
     const h = hsl.hue / 60;
-    let s = 0;
-    let l = 0;
-    console.log('hsl', h, s, l);
-
-    const red = 0;
-    const green = 0;
-    const blue = 0;
-    console.log('rgb', red, green, blue);
-    /*
-    const r = rgb.red / 255;
-    const g = rgb.green / 255;
-    const b = rgb.blue / 255;
-    const min = Math.min(r, g, b);
-    const max = Math.max(r, g, b);
-    const range = max - min;
-
-    let hue = 0;
-    if(r == max) {
-      hue = ((g - b) / range);
-    } else if(g === max) {
-      hue = 2 + ((b - r) / range);
+    const l = hsl.light / 100;
+    const s = hsl.sat / 100;
+    let d1 = 0;
+    if(l <= 0.5) {
+      d1 = l * (s + 1);
     } else {
-      hue = 4 + ((r - g) / range);
+      d1 = l + s - (l * s);
     }
-    hue = isNaN(hue) ? 0 : this.toDegrees(hue);
-    if(hue < 0) {
-      hue += 360;
-    }
-    const light = this.toPercent((min + max) / 2);
-    let sat = 0;
-    if(max > min) {
-      if(light < 50) {
-        sat = this.toPercent(range / (max + min));
-      } else {
-        sat = this.toPercent(range / (2 - max - min));
-      }
-    }
-    */
+    let d0 = l * 2 - d1;
+
+    console.log('h d0 d1', h.toFixed(3), d0.toFixed(3), d1.toFixed(3));
+    const red = Math.round(255 * this.hueToComponent(d0, d1, h + 2));
+    const green = Math.round(255 * this.hueToComponent(d0, d1, h));
+    const blue = Math.round(255 * this.hueToComponent(d0, d1, h - 2));
 
     return {
       red,
       green,
       blue
     };
+  }
+
+  static hueToComponent(d0, d1, h) {
+    h = (h < 0 ? h + 6: h);
+    h = (h >= 6 ? h - 6: h);
+    if(h < 1) {
+      return (((d1 - d0) * h) + d0);
+    } else if(h < 3) {
+      return d1;
+    } else if(h < 4) {
+      return ((d1 - d0) * (4 - h) + d0);
+    } else {
+      return d0;
+    }
   }
 }
 

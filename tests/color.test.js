@@ -36,12 +36,10 @@ describe('Color', () => {
     expect(Color.rgbToColor(rgbValue)).toEqual(colorValue);
   });
 
-  /*
   test('should convert hsl to color', () => {
     expect(Color.hslToColor(hslValue)).toEqual(colorValue);
   });
 
-*/
   test('should convert hex to rgb', () => {
     expect(Color.hexToRgb(hexValue)).toEqual(rgbValue);
   });
@@ -54,9 +52,7 @@ describe('Color', () => {
     expect(Color.rgbToHsl(rgbValue)).toEqual(hslValue);
   });
 
-  /*
   test('should convert hsl to rgb', () => {
     expect(Color.hslToRgb(hslValue)).toEqual(rgbValue);
   });
-  */
 });
