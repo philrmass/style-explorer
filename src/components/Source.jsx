@@ -15,11 +15,24 @@ class Source extends React.Component {
     this.fullCanvas = React.createRef();
   }
 
+  componentDidMount() {
+    window.onresize = () => {
+      this.imageResize();
+    };
+  }
+
   getSnapshotBeforeUpdate(prevProps) {
     this.renderSample(prevProps.url, this.props.url)
       .then((fullCanvas) => {
         this.renderMagnifier(fullCanvas, this.props.mag);
       });
+  }
+
+  imageResize() {
+    const displayImage = this.displayImage.current;
+    if(displayImage) {
+      this.props.dispatch(setDisplaySize(displayImage.width, displayImage.height));
+    }
   }
 
   renderSample(lastUrl, url) {
@@ -34,6 +47,7 @@ class Source extends React.Component {
           this.props.dispatch(setFullSize(fullCanvas.width, fullCanvas.height));
           ctx.drawImage(fullImage, 0, 0);
           fullImage.style.display = 'none';
+          this.imageResize();
           resolve(fullCanvas);
         };
         fullImage.src = url;
@@ -60,32 +74,28 @@ class Source extends React.Component {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     this.props.dispatch(setCursorPosition(x, y));
-    //???? move below
-    const displayImage = this.displayImage.current;
-    this.props.dispatch(setDisplaySize(displayImage.width, displayImage.height));
-    console.log('  dw,dh', displayImage.width, displayImage.height);
   }
 
-  //??? handle window resize
-  //const displayImage = this.displayImage.current;
-  //this.props.dispatch(setDisplaySize(displayImage.width, displayImage.height));
-  //console.log('  dw,dh', rect.width, rect.height);
-
   render() {
+    const mag = this.props.mag;
     const cursorStyle = {
-      left: this.props.mag.cursorX + 'px', 
-      top: this.props.mag.cursorY + 'px', 
-      width: this.props.mag.cursorWidth + 'px',
-      height: this.props.mag.cursorHeight + 'px'
+      left: mag.cursorX + 'px', 
+      top: mag.cursorY + 'px', 
+      width: mag.cursorWidth + 'px',
+      height: mag.cursorHeight + 'px'
     };
+    console.log('render', mag);
     return (
       <div>
         <div>
+          <div className={styles.magLabel}>
+            {`(${mag.x}, ${mag.y}) to (${mag.x + mag.width}, ${mag.y + mag.height})`}
+          </div>
           <canvas 
             id='magCanvas' 
             ref={this.magCanvas}
-            width={(MAG_PIXEL_SIZE * this.props.mag.width) + 'px'}
-            height={(MAG_PIXEL_SIZE * this.props.mag.height) + 'px'}
+            width={(MAG_PIXEL_SIZE * mag.width) + 'px'}
+            height={(MAG_PIXEL_SIZE * mag.height) + 'px'}
             className={styles.magCanvas}>
           </canvas>
         </div>
@@ -95,6 +105,7 @@ class Source extends React.Component {
             className={styles.displayWrap} 
             onClick={this.handleImageClick}>
             <img 
+              id='displayImage'
               ref={this.displayImage}
               src={this.props.url}
               className={styles.displayImage}/>

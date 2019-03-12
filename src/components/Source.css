@@ -12,7 +12,14 @@
   width: auto;
 }
 
+.magLabel {
+  padding: 0.1em 0 0.4em 0.6em;
+  color: var(--mid-text-color);
+  font-size: 0.9em;
+}
+
 .magCanvas {
+  border: 2px solid var(--mag-cursor-color);
 }
 
 .magCursor {

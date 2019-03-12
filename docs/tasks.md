@@ -15,8 +15,6 @@
 
 ## Style Explorer Tasks
 ### Basic
-* Yellow border on magnifier
-* Write x,y info by magifier, css
 * Set display size on resize events
 * Set cursor pos on source load
 * Set cursor in display size action
@@ -91,3 +89,5 @@
 * Set current source when clicking on recent source
 * Create magnifier, display pixels at specific size
 * Add click/drag events to move magnifier
+* Yellow border on magnifier
+* Write x,y info by magifier, css

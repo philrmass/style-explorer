@@ -9,7 +9,7 @@ import './index.css';
 const store = createStore(rootReducer);
 
 store.subscribe(() => {
-  console.log('state', store.getState());
+  //console.log('state', store.getState());
 });
 
 ReactDOM.render(
