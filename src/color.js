@@ -16,6 +16,15 @@ class Color {
     };
   }
 
+  static hslToColor(hsl) {
+    const rgb = this.hslToRgb(hsl);
+    return {
+      hex: this.rgbToHex(rgb),
+      ...rgb,
+      ...hsl
+    };
+  }
+
   static hexToRgb(hex) {
     return {
       red: parseInt(hex.slice(0, 2), 16),
@@ -74,6 +83,54 @@ class Color {
 
   static toPercent(value) {
     return Math.round(1000 * value) / 10;
+  }
+
+  static hslToRgb(hsl) {
+    const h = hsl.hue / 60;
+    let s = 0;
+    let l = 0;
+    console.log('hsl', h, s, l);
+
+    const red = 0;
+    const green = 0;
+    const blue = 0;
+    console.log('rgb', red, green, blue);
+    /*
+    const r = rgb.red / 255;
+    const g = rgb.green / 255;
+    const b = rgb.blue / 255;
+    const min = Math.min(r, g, b);
+    const max = Math.max(r, g, b);
+    const range = max - min;
+
+    let hue = 0;
+    if(r == max) {
+      hue = ((g - b) / range);
+    } else if(g === max) {
+      hue = 2 + ((b - r) / range);
+    } else {
+      hue = 4 + ((r - g) / range);
+    }
+    hue = isNaN(hue) ? 0 : this.toDegrees(hue);
+    if(hue < 0) {
+      hue += 360;
+    }
+    const light = this.toPercent((min + max) / 2);
+    let sat = 0;
+    if(max > min) {
+      if(light < 50) {
+        sat = this.toPercent(range / (max + min));
+      } else {
+        sat = this.toPercent(range / (2 - max - min));
+      }
+    }
+    */
+
+    return {
+      red,
+      green,
+      blue
+    };
   }
 }
 

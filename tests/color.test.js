@@ -28,15 +28,35 @@ describe('Color', () => {
     light: lightValue
   };
 
+  test('should convert hex to color', () => {
+    expect(Color.hexToColor(hexValue)).toEqual(colorValue);
+  });
+
+  test('should convert rgb to color', () => {
+    expect(Color.rgbToColor(rgbValue)).toEqual(colorValue);
+  });
+
+  /*
+  test('should convert hsl to color', () => {
+    expect(Color.hslToColor(hslValue)).toEqual(colorValue);
+  });
+
+*/
   test('should convert hex to rgb', () => {
     expect(Color.hexToRgb(hexValue)).toEqual(rgbValue);
+  });
+
+  test('should convert rgb to hex', () => {
+    expect(Color.rgbToHex(rgbValue)).toEqual(hexValue);
   });
 
   test('should convert rgb to hsl', () => {
     expect(Color.rgbToHsl(rgbValue)).toEqual(hslValue);
   });
 
-  test('should convert hex to color', () => {
-    expect(Color.hexToColor(hexValue)).toEqual(colorValue);
+  /*
+  test('should convert hsl to rgb', () => {
+    expect(Color.hslToRgb(hslValue)).toEqual(rgbValue);
   });
+  */
 });

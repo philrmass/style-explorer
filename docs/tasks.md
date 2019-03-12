@@ -1,8 +1,6 @@
 ## Style Explorer Features
 ### Basic
-* Magnifier, set color on click
 * Color picker, set color on click
-* Copy icon
 * Collapsibles, responsive layout, source grow
 * Parse source pixels
 * 2D HSL graph
@@ -15,15 +13,12 @@
 
 ## Style Explorer Tasks
 ### Basic
-* Create basic div layout for color picker with css
 * Add mouse move events to color picker divs
-* Add hsl display at top of picker
+* Update hsl values from mouse movements
 * Add hsl to rgb conversion function and test
 * Add hsl color reducer and action
-* Set HSL values from click and drag
 * Add rotating circle to color picker
 * Add drag sliders to color picker
-* Create copy icons from dom elements
 * Define ui state slice
 * Get collapsibles to collapse
 * Set collapsible css types
@@ -92,3 +87,7 @@
 * Change color set back to hex
 * Pick color in magnifier
 * Create copy icon from dom
+* Add hsl display at top of picker
+* Create copy icons from dom elements
+* Magnifier, set color on click
+* Copy icon
