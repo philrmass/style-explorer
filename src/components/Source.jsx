@@ -61,10 +61,10 @@ class Source extends React.Component {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     this.props.dispatch(setCursorPosition(x, y));
-    console.log('  x,y', x, y);
     //???? move below
     const displayImage = this.displayImage.current;
     this.props.dispatch(setDisplaySize(displayImage.width, displayImage.height));
+    console.log('  x,y', x, y);
     console.log('  dw,dh', displayImage.width, displayImage.height);
   }
 
@@ -74,6 +74,13 @@ class Source extends React.Component {
   //console.log('  dw,dh', rect.width, rect.height);
 
   render() {
+    const cursorStyle = {
+      left: this.props.mag.cursorX + 'px', 
+      top: this.props.mag.cursorY + 'px', 
+      width: this.props.mag.cursorWidth + 'px',
+      height: this.props.mag.cursorHeight + 'px'
+    };
+    console.log('curs', cursorStyle);
     return (
       <div>
         <div>
@@ -95,10 +102,7 @@ class Source extends React.Component {
               src={this.props.url}
               className={styles.displayImage}/>
             <div 
-              width={this.props.mag.cursorWidth + 'px'}
-              height={this.props.mag.cursorHeight + 'px'}
-              left={this.props.mag.cursorX + 'px'}
-              top={this.props.mag.cursorY + 'px'}
+              style={cursorStyle}
               className={styles.magCursor}></div>
           </div>
         </div>}
@@ -111,6 +115,12 @@ class Source extends React.Component {
     );
   }
 }
+/*
+              left={this.props.mag.cursorX + 'px'}
+              top={this.props.mag.cursorY + 'px'}
+              width={this.props.mag.cursorWidth + 'px'}
+              height={this.props.mag.cursorHeight + 'px'}
+*/
 
 Source.propTypes = {
   dispatch: PropTypes.func,

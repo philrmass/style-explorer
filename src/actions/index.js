@@ -32,8 +32,8 @@ export function setSource(url) {
 export function setCursorPosition(x, y) {
   return {
     type: types.SET_CURSOR_POSITION,
-    x,
-    y
+    cursorX: x,
+    cursorY: y
   };
 }
 
