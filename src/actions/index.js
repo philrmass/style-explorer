@@ -36,3 +36,11 @@ export function setMagnifierPosition(x, y) {
     y
   };
 }
+
+export function setFullSize(width, height) {
+  return {
+    type: types.SET_FULL_SIZE,
+    width,
+    height
+  };
+}

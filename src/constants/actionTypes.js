@@ -2,3 +2,5 @@ export const SET_COLOR = 'SET_COLOR';
 export const ADD_SOURCE = 'ADD_SOURCE';
 export const SET_SOURCE = 'SET_SOURCE';
 export const SET_MAGNIFIER_POSITION = 'SET_MAGNIFIER_POSITION';
+export const SET_FULL_SIZE = 'SET_FULL_SIZE';
+export const SET_DISPLAY_SIZE = 'SET_DISPLAY_SIZE';
