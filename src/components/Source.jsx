@@ -86,7 +86,6 @@ class Source extends React.Component {
       width: mag.cursorWidth + 'px',
       height: mag.cursorHeight + 'px'
     };
-    console.log('render', mag);
     return (
       <div>
         <div>

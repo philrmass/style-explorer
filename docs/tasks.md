@@ -15,8 +15,6 @@
 
 ## Style Explorer Tasks
 ### Basic
-* Set cursor in display size action
-* Set cursor in full size action
 * Fix magnifier tests
 * Change color set back to hex
 * Pick color in magnifier
@@ -91,3 +89,5 @@
 * Write x,y info by magifier, css
 * Set display size on resize events
 * Set cursor pos on image load
+* Set cursor in display size action
+* Set cursor in full size action
