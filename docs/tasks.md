@@ -15,7 +15,6 @@
 
 ## Style Explorer Tasks
 ### Basic
-* Create copy icon from dom
 * Create basic div layout for color picker with css
 * Add mouse move events to color picker divs
 * Add hsl display at top of picker
@@ -91,3 +90,4 @@
 * Fix magnifier tests
 * Change color set back to hex
 * Pick color in magnifier
+* Create copy icon from dom
