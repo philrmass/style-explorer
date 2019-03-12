@@ -16,6 +16,15 @@ export function setColorRgb(red, green, blue) {
   };
 }
 
+export function setColorHsl(hue, sat, light) {
+  return {
+    type: types.SET_COLOR_HSL,
+    hue,
+    sat,
+    light
+  };
+}
+
 export function addSource(name, url, imageData) {
   return {
     type: types.ADD_SOURCE,

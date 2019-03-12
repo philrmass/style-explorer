@@ -1,10 +1,10 @@
-import { SET_COLOR_HEX, SET_COLOR_RGB } from '../constants/actionTypes';
+import { SET_COLOR_HEX, SET_COLOR_RGB, SET_COLOR_HSL } from '../constants/actionTypes';
 import Color from '../color';
 
 export const defaultState = Color.hexToColor('808080');
 
 function currentColor(state = defaultState, action) {
-  let rgb;
+  let rgb, hsl;
   switch(action.type) {
     case SET_COLOR_HEX:
       return Color.hexToColor(action.hex);
@@ -15,6 +15,13 @@ function currentColor(state = defaultState, action) {
         blue: action.blue
       };
       return Color.rgbToColor(rgb);
+    case SET_COLOR_HSL:
+      hsl = {
+        hue: action.hue,
+        sat: action.sat,
+        light: action.light
+      };
+      return Color.hslToColor(hsl);
     default:
       return state;
   }
