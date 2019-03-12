@@ -2,10 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './CopyIcon.css';
 
-function CopyIcon({source}) {
+function CopyIcon() {
   return (
-    <div className={styles.copyCopyIcon}>
-      <img src={source} />
+    <div className={styles.copyIcon}>
+      <div className={styles.wrap}>
+        <div className={styles.front}>
+        </div>
+        <div className={styles.back}>
+        </div>
+      </div>
     </div>
   );
 }
