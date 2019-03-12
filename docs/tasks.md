@@ -35,6 +35,7 @@
 * Update docs with actions, reducers, data
 
 ### Future
+* Switch text to have contrast with current color
 * Touch events in color picker
 * Add custom image background to color picker
 * Add arrow keys to move magnifier

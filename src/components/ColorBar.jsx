@@ -2,17 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CopyIcon from './CopyIcon';
+import Clipboard from '../clipboard';
 import styles from './ColorBar.css';
-
-function copyToClipboard(id) {
-  console.log('copy', id);
-  let range = document.createRange();
-  range.selectNode(document.getElementById(id));
-  window.getSelection().removeAllRanges();
-  window.getSelection().addRange(range);
-  document.execCommand('copy');
-  window.getSelection().removeAllRanges();
-}
 
 function ColorBar({ color }) {
   const style= { backgroundColor: '#' + color.hex };
@@ -22,7 +13,7 @@ function ColorBar({ color }) {
         <span id='hexText'>
           {'#' + color.hex}
         </span>
-        <button onClick={() => copyToClipboard('hexText')}>
+        <button onClick={() => Clipboard.copyTextFromId('hexText')}>
           <CopyIcon/>
         </button>
       </div>
@@ -30,7 +21,7 @@ function ColorBar({ color }) {
         <span id='rgbaText'>
           {`rgba(${color.red}, ${color.green}, ${color.blue}, 1)`}
         </span>
-        <button onClick={() => copyToClipboard('rgbaText')}>
+        <button onClick={() => Clipboard.copyTextFromId('rgbaText')}>
           <CopyIcon/>
         </button>
       </div>

@@ -17,7 +17,3 @@
 .colorItem span {
   margin-right: 0.3em;
 }
-
-.colorItem:first-child Button {
-  margin-right: 0.4em;
-}

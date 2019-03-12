@@ -1,6 +1,27 @@
 .colorPicker {
-  min-height: 150px;
-  min-width: 100px;
+  min-width: 300px;
   background-color: #808080;
-  font-family: monospace;
+}
+
+.hslaBar {
+  display: flex;
+  align-items: center;
+  padding: 0.3em;
+  border: 1px solid var(--border-color);
+  background-color: #808080;
+  font-size: 2.0rem;
+}
+
+.hslaBar span {
+  margin: 0.3em;
+}
+
+.hueSatBox {
+  background-color: #90c0ff;
+  height: 400px;
+}
+
+.lightBox {
+  background-color: #c090ff;
+  height: 45%;
 }
