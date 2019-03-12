@@ -15,8 +15,6 @@
 
 ## Style Explorer Tasks
 ### Basic
-* Fix magnifier tests
-* Change color set back to hex
 * Pick color in magnifier
 * Create copy icon from dom
 * Create basic div layout for color picker with css
@@ -91,3 +89,5 @@
 * Set cursor pos on image load
 * Set cursor in display size action
 * Set cursor in full size action
+* Fix magnifier tests
+* Change color set back to hex

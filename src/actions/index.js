@@ -1,10 +1,9 @@
 import * as types from '../constants/actionTypes';
-import Color from '../color';
 
 export function setColorHex(hex) {
   return {
-    type: types.SET_COLOR,
-    color: Color.hexToColor(hex)
+    type: types.SET_COLOR_HEX,
+    hex
   };
 }
 
@@ -14,7 +13,8 @@ export function addSource(name, url, imageData) {
     id: url,
     source: {
       name,
-      url
+      url,
+      length: imageData.length
     }
   };
 }
