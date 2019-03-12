@@ -1,4 +1,5 @@
 export const SET_COLOR_HEX = 'SET_COLOR_HEX';
+export const SET_COLOR_RGB = 'SET_COLOR_RGB';
 export const ADD_SOURCE = 'ADD_SOURCE';
 export const SET_SOURCE = 'SET_SOURCE';
 export const SET_CURSOR_POSITION = 'SET_CURSOR_POSITION';

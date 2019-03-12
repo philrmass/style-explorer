@@ -7,6 +7,15 @@ export function setColorHex(hex) {
   };
 }
 
+export function setColorRgb(red, green, blue) {
+  return {
+    type: types.SET_COLOR_RGB,
+    red,
+    green,
+    blue
+  };
+}
+
 export function addSource(name, url, imageData) {
   return {
     type: types.ADD_SOURCE,

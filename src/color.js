@@ -8,12 +8,27 @@ class Color {
     };
   }
 
+  static rgbToColor(rgb) {
+    return {
+      hex: this.rgbToHex(rgb),
+      ...rgb,
+      ...this.rgbToHsl(rgb)
+    };
+  }
+
   static hexToRgb(hex) {
     return {
       red: parseInt(hex.slice(0, 2), 16),
       green: parseInt(hex.slice(2, 4), 16),
       blue: parseInt(hex.slice(4), 16),
     };
+  }
+
+  static rgbToHex(rgb) {
+    const r = ('0' + rgb.red.toString(16)).slice(-2);
+    const g = ('0' + rgb.green.toString(16)).slice(-2);
+    const b = ('0' + rgb.blue.toString(16)).slice(-2);
+    return r + g + b;
   }
 
   static rgbToHsl(rgb) {

@@ -1,9 +1,12 @@
-import { setColorHex } from '../../src/actions';
+import { setColorHex, setColorRgb } from '../../src/actions';
 import currentColor from '../../src/reducers/currentColor';
 import { defaultState } from '../../src/reducers/currentColor';
 
 describe('currentColor', () => {
   const colorHex = '6b2097';
+  const colorRed = 107;
+  const colorGreen = 32;
+  const colorBlue = 151;
   const color = { 
     hex: colorHex,
     red: 107,
@@ -24,5 +27,9 @@ describe('currentColor', () => {
 
   test('Should set color from hex value', () => {
     expect(currentColor({}, setColorHex(colorHex))).toEqual(color);
+  });
+
+  test('Should set color from red, green, blue values', () => {
+    expect(currentColor({}, setColorRgb(colorRed, colorGreen, colorBlue))).toEqual(color);
   });
 });
