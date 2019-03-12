@@ -29,9 +29,9 @@ export function setSource(url) {
   };
 }
 
-export function setMagnifierPosition(x, y) {
+export function setCursorPosition(x, y) {
   return {
-    type: types.SET_MAGNIFIER_POSITION,
+    type: types.SET_CURSOR_POSITION,
     x,
     y
   };

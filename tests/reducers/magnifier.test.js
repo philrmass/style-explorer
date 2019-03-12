@@ -1,4 +1,4 @@
-import { setMagnifierPosition, setFullSize, setDisplaySize } from '../../src/actions';
+import { setCursorPosition, setFullSize, setDisplaySize } from '../../src/actions';
 import magnifier from '../../src/reducers/magnifier';
 import { defaultState } from '../../src/reducers/magnifier';
 
@@ -72,7 +72,7 @@ describe('magnifier', () => {
   };
 
   test('Should set magnifier position from x and y values', () => {
-    expect(magnifier(beforePosition, setMagnifierPosition(150, 250))).toEqual(after);
+    expect(magnifier(beforePosition, setCursorPosition(150, 250))).toEqual(after);
   });
 
   test('Should set full size from width and height values', () => {

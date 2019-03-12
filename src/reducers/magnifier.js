@@ -11,13 +11,13 @@ export const defaultState = {
   height: 10,
   cursorX: 0,
   cursorY: 0, 
-  cursorWidth: 0, 
-  cursorHeight: 0
+  cursorWidth: 1, 
+  cursorHeight: 1
 };
 
 function magnifier(state = defaultState, action) {
   switch(action.type) {
-    case types.SET_MAGNIFIER_POSITION:
+    case types.SET_CURSOR_POSITION:
       return Object.assign({}, state, {
         x: action.x,
         y: action.y

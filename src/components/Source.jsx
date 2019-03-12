@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setMagnifierPosition, setFullSize, setDisplaySize } from '../actions';
+import { setCursorPosition, setFullSize, setDisplaySize } from '../actions';
 import styles from './Source.css';
 
 const MAG_PIXEL_SIZE = 10;
@@ -60,7 +60,7 @@ class Source extends React.Component {
     const rect = wrap.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    this.props.dispatch(setMagnifierPosition(x, y));
+    this.props.dispatch(setCursorPosition(x, y));
     console.log('  x,y', x, y);
     //???? move below
     const displayImage = this.displayImage.current;
@@ -94,7 +94,12 @@ class Source extends React.Component {
               ref={this.displayImage}
               src={this.props.url}
               className={styles.displayImage}/>
-            <div className={styles.magCursor}></div>
+            <div 
+              width={this.props.mag.cursorWidth + 'px'}
+              height={this.props.mag.cursorHeight + 'px'}
+              left={this.props.mag.cursorX + 'px'}
+              top={this.props.mag.cursorY + 'px'}
+              className={styles.magCursor}></div>
           </div>
         </div>}
         <canvas 
