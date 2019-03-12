@@ -45,22 +45,25 @@ describe('magnifier', () => {
     expect(magnifier(beforePosition, setCursorPosition(55, 45))).toEqual(after);
   });
 
-  /*
   const beforeFull= {
     fullWidth: 1,
     fullHeight: 1,
-    displayWidth: 100,
-    displayHeight: 80,
-    x: 150, 
-    y: 250, 
+    displayWidth: 500,
+    displayHeight: 400,
+    x: 100, 
+    y: 80, 
     width: 20, 
-    height: 10,
-    cursorX: 15,
-    cursorY: 25, 
-    cursorWidth: 2, 
-    cursorHeight: 1
+    height: 20,
+    cursorX: 0,
+    cursorY: 0,
+    cursorWidth: 1, 
+    cursorHeight: 1 
   };
 
+  test('Should set full size from width and height values', () => {
+    expect(magnifier(beforeFull, setFullSize(1000, 800))).toEqual(after);
+  });
+  /*
   const beforeDisplay = {
     fullWidth: 1000,
     fullHeight: 800,
@@ -77,9 +80,6 @@ describe('magnifier', () => {
   };
   */
   /*
-  test('Should set full size from width and height values', () => {
-    expect(magnifier(beforeFull, setFullSize(1000, 800))).toEqual(after);
-  });
 
   test('Should set display size from width and height values', () => {
     expect(magnifier(beforeDisplay, setDisplaySize(100, 80))).toEqual(after);
