@@ -9,9 +9,6 @@ export function setColorHex(hex) {
 }
 
 export function addSource(name, url, imageData) {
-  console.log('add', name, '\n', url);
-  console.log('data', imageData.width, 'x', imageData.height, imageData.data.length);
-  //??? add timeAdded
   return {
     type: types.ADD_SOURCE,
     id: url,

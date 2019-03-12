@@ -63,26 +63,23 @@ describe('magnifier', () => {
   test('Should set full size from width and height values', () => {
     expect(magnifier(beforeFull, setFullSize(1000, 800))).toEqual(after);
   });
-  /*
+
   const beforeDisplay = {
     fullWidth: 1000,
     fullHeight: 800,
     displayWidth: 1,
     displayHeight: 1,
-    x: 150, 
-    y: 250, 
+    x: 100, 
+    y: 80, 
     width: 20, 
-    height: 10,
-    cursorX: 15,
-    cursorY: 25, 
-    cursorWidth: 2, 
-    cursorHeight: 1
+    height: 20,
+    cursorX: 0,
+    cursorY: 0,
+    cursorWidth: 1, 
+    cursorHeight: 1 
   };
-  */
-  /*
 
   test('Should set display size from width and height values', () => {
-    expect(magnifier(beforeDisplay, setDisplaySize(100, 80))).toEqual(after);
+    expect(magnifier(beforeDisplay, setDisplaySize(500, 400))).toEqual(after);
   });
-  */
 });
