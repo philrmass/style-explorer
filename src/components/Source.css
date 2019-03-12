@@ -2,12 +2,12 @@
   position: relative;
 }
 
-.imageWrap {
+.displayWrap {
   display: inline-block;
   position: relative;
 }
 
-.image {
+.displayImage {
   max-width: 100%;
   width: auto;
 }
@@ -24,6 +24,6 @@
   border: 1px solid var(--mag-cursor-color);
 }
 
-.sampleCanvas {
+.fullCanvas {
   display: none;
 }

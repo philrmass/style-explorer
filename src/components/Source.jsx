@@ -3,66 +3,75 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from './Source.css';
 
+const MAG_PIXEL_SIZE = 10;
+//??? remove mag sizes
 const MAG_X_PIXELS = 20;
 const MAG_Y_PIXELS = 10;
-const MAG_SIZE = 10;
-const MAG_WIDTH = (MAG_SIZE * MAG_X_PIXELS); 
-const MAG_HEIGHT = (MAG_SIZE * MAG_Y_PIXELS); 
+const MAG_WIDTH = (MAG_PIXEL_SIZE * MAG_X_PIXELS); 
+const MAG_HEIGHT = (MAG_PIXEL_SIZE * MAG_Y_PIXELS); 
 
 class Source extends React.Component {
   constructor(props) {
     super(props);
     this.handleImageClick = this.handleImageClick.bind(this);
-    this.sampleCanvas = React.createRef();
     this.magCanvas = React.createRef();
+    this.displayImage = React.createRef();
+    this.fullCanvas = React.createRef();
   }
 
   getSnapshotBeforeUpdate(prevProps) {
     this.renderSample(prevProps.url, this.props.url)
-      .then((image) => {
-        this.renderMagnifier(image, this.props.magX, this.props.magY);
+      .then((fullCanvas) => {
+        this.renderMagnifier(fullCanvas, this.props.magX, this.props.magY);
       });
   }
 
   renderSample(lastUrl, url) {
     return new Promise((resolve) => {
       if(lastUrl !== url) {
-        let canvas = this.sampleCanvas.current;
-        let ctx = canvas.getContext('2d');
-        const image = new Image();
-        image.onload = () => { 
-          canvas.width = image.width;
-          canvas.height = image.height;
-          //??? setFullSize(fw, fh);
-          ctx.drawImage(image, 0, 0);
-          image.style.display = 'none';
-          resolve(canvas);
+        let fullCanvas = this.fullCanvas.current;
+        let ctx = fullCanvas.getContext('2d');
+        const fullImage = new Image();
+        fullImage.onload = () => { 
+          fullCanvas.width = fullImage.width;
+          fullCanvas.height = fullImage.height;
+          //??? setFullSize(fullCanvas.width, fullCanvas.height);
+          console.log('  fw,fh', fullCanvas.width, fullCanvas.height);
+          ctx.drawImage(fullImage, 0, 0);
+          fullImage.style.display = 'none';
+          resolve(fullCanvas);
         };
-        image.src = url;
+        fullImage.src = url;
       } else {
-        resolve(this.sampleCanvas.current);
+        resolve(this.fullCanvas.current);
       }
     });
   }
 
-  renderMagnifier(image, x, y) {
-    let canvas = this.magCanvas.current;
-    let ctx = canvas.getContext('2d');
+  renderMagnifier(fullCanvas, x, y) {
+    let magCanvas = this.magCanvas.current;
+    let ctx = magCanvas.getContext('2d');
     ctx.imageSmoothingEnabled = false;
-    if(image.width && image.height) {
-      ctx.drawImage(image, x, y, MAG_X_PIXELS, MAG_Y_PIXELS, 0, 0, MAG_WIDTH, MAG_HEIGHT); 
+    if(fullCanvas.width && fullCanvas.height) {
+      ctx.drawImage(fullCanvas, x, y, MAG_X_PIXELS, MAG_Y_PIXELS, 0, 0, MAG_WIDTH, MAG_HEIGHT); 
     }
   }
 
   handleImageClick(event) {
-    let wrap = event.target && event.target.closest('#imageWrap');
-    let rect = wrap.getBoundingClientRect();
-    console.log('DIV');
-    console.log('  x,y', event.clientX - rect.left, event.clientY - rect.top);
-    console.log('  dw,dh', rect.width, rect.height);
-    console.log('  fw,fh', this.sampleCanvas.current.width, this.sampleCanvas.current.height);
-    //??? setMagnifierPosition(x, y, dw, dh);
+    let wrap = event.target && event.target.closest('#displayWrap');
+    const rect = wrap.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    //??? setMagnifierPosition(x, y);
+    console.log('  x,y', x, y);
+    const displayImage = this.displayImage.current;
+    console.log('  dw,dh', displayImage.width, displayImage.height);
   }
+
+  //??? handle window resize
+  //let rect = this.displayImage.getBoundingClientRect();
+  //??? setDisplaySize(rect.width, rect.height);
+  //console.log('  dw,dh', rect.width, rect.height);
 
   render() {
     return (
@@ -78,17 +87,20 @@ class Source extends React.Component {
         </div>
         {this.props.url && <div className={styles.source}>
           <div 
-            id='imageWrap' 
-            className={styles.imageWrap} 
+            id='displayWrap' 
+            className={styles.displayWrap} 
             onClick={this.handleImageClick}>
-            <img className={styles.image} src={this.props.url}/>
+            <img 
+              ref={this.displayImage}
+              src={this.props.url}
+              className={styles.displayImage}/>
             <div className={styles.magCursor}></div>
           </div>
         </div>}
         <canvas 
-          id='sampleCanvas' 
-          ref={this.sampleCanvas}
-          className={styles.sampleCanvas}>
+          id='fullCanvas' 
+          ref={this.fullCanvas}
+          className={styles.fullCanvas}>
         </canvas>
       </div>
     );
