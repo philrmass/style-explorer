@@ -1,6 +1,19 @@
 import * as types from '../constants/actionTypes';
 
-export const defaultState = { x: 0, y: 0, width: 20, height: 10 };
+export const defaultState = { 
+  fullWidth: 1,
+  fullHeight: 1,
+  displayWidth: 1,
+  displayHeight: 1,
+  x: 0, 
+  y: 0, 
+  width: 20, 
+  height: 10,
+  cursorX: 0,
+  cursorY: 0, 
+  cursorWidth: 0, 
+  cursorHeight: 0
+};
 
 function magnifier(state = defaultState, action) {
   switch(action.type) {
