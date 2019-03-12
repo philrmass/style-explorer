@@ -18,8 +18,14 @@
   font-size: 0.9em;
 }
 
-.magCanvas {
+.magWrap {
+  display: inline-block;
   border: 2px solid var(--mag-cursor-color);
+  margin-bottom: var(--content-padding);
+}
+
+.magCanvas {
+  display: block;
 }
 
 .magCursor {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setCursorPosition, setFullSize, setDisplaySize } from '../actions';
+import { setCursorPosition, setFullSize, setDisplaySize, setColorRgb } from '../actions';
 import styles from './Source.css';
 
 const MAG_PIXEL_SIZE = 10;
@@ -10,6 +10,7 @@ class Source extends React.Component {
   constructor(props) {
     super(props);
     this.handleImageClick = this.handleImageClick.bind(this);
+    this.handleMagClick = this.handleMagClick.bind(this);
     this.magCanvas = React.createRef();
     this.displayImage = React.createRef();
     this.fullCanvas = React.createRef();
@@ -78,6 +79,15 @@ class Source extends React.Component {
     this.props.dispatch(setCursorPosition(x, y));
   }
 
+  handleMagClick(event) {
+    const rect = event.target.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const ctx = event.target.getContext('2d');
+    var pixel = ctx.getImageData(x, y, 1, 1);
+    this.props.dispatch(setColorRgb(pixel.data[0], pixel.data[1], pixel.data[2]));
+  }
+
   render() {
     const mag = this.props.mag;
     const cursorStyle = {
@@ -92,13 +102,16 @@ class Source extends React.Component {
           <div className={styles.magLabel}>
             {`(${mag.x}, ${mag.y}) to (${mag.x + mag.width}, ${mag.y + mag.height})`}
           </div>
-          <canvas 
-            id='magCanvas' 
-            ref={this.magCanvas}
-            width={(MAG_PIXEL_SIZE * mag.width) + 'px'}
-            height={(MAG_PIXEL_SIZE * mag.height) + 'px'}
-            className={styles.magCanvas}>
-          </canvas>
+          <div className={styles.magWrap}>
+            <canvas 
+              id='magCanvas' 
+              ref={this.magCanvas}
+              width={(MAG_PIXEL_SIZE * mag.width) + 'px'}
+              height={(MAG_PIXEL_SIZE * mag.height) + 'px'}
+              onClick={this.handleMagClick}
+              className={styles.magCanvas}>
+            </canvas>
+          </div>
         </div>
         {this.props.url && <div className={styles.source}>
           <div 
