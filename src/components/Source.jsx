@@ -4,11 +4,6 @@ import { connect } from 'react-redux';
 import styles from './Source.css';
 
 const MAG_PIXEL_SIZE = 10;
-//??? remove mag sizes
-const MAG_X_PIXELS = 20;
-const MAG_Y_PIXELS = 10;
-const MAG_WIDTH = (MAG_PIXEL_SIZE * MAG_X_PIXELS); 
-const MAG_HEIGHT = (MAG_PIXEL_SIZE * MAG_Y_PIXELS); 
 
 class Source extends React.Component {
   constructor(props) {
@@ -22,7 +17,7 @@ class Source extends React.Component {
   getSnapshotBeforeUpdate(prevProps) {
     this.renderSample(prevProps.url, this.props.url)
       .then((fullCanvas) => {
-        this.renderMagnifier(fullCanvas, this.props.magX, this.props.magY);
+        this.renderMagnifier(fullCanvas, this.props.mag);
       });
   }
 
@@ -48,12 +43,14 @@ class Source extends React.Component {
     });
   }
 
-  renderMagnifier(fullCanvas, x, y) {
+  renderMagnifier(fullCanvas, mag) {
     let magCanvas = this.magCanvas.current;
     let ctx = magCanvas.getContext('2d');
     ctx.imageSmoothingEnabled = false;
     if(fullCanvas.width && fullCanvas.height) {
-      ctx.drawImage(fullCanvas, x, y, MAG_X_PIXELS, MAG_Y_PIXELS, 0, 0, MAG_WIDTH, MAG_HEIGHT); 
+      ctx.drawImage(fullCanvas, 
+        mag.x, mag.y, mag.width, mag.height, 
+        0, 0, MAG_PIXEL_SIZE * mag.width, MAG_PIXEL_SIZE * mag.height); 
     }
   }
 
@@ -80,8 +77,8 @@ class Source extends React.Component {
           <canvas 
             id='magCanvas' 
             ref={this.magCanvas}
-            width={(MAG_WIDTH) + 'px'}
-            height={(MAG_HEIGHT) + 'px'}
+            width={(MAG_PIXEL_SIZE * this.props.mag.width) + 'px'}
+            height={(MAG_PIXEL_SIZE * this.props.mag.height) + 'px'}
             className={styles.magCanvas}>
           </canvas>
         </div>
@@ -109,15 +106,13 @@ class Source extends React.Component {
 
 Source.propTypes = {
   url: PropTypes.string,
-  magX: PropTypes.number,
-  magY: PropTypes.number
+  mag: PropTypes.object
 };
 
 function mapStateToProps(state) {
   return { 
     url: state.currentSource,
-    magX: state.ui.magX,
-    magY: state.ui.magY
+    mag: state.magnifier,
   };
 }
 

@@ -12,6 +12,6 @@ describe('magnifier', () => {
   });
 
   test('Should set magnifier position from x and y values', () => {
-    expect(magnifier({}, setMagnifierPosition(100, 100))).toEqual({ magX: 100, magY: 100 });
+    expect(magnifier({}, setMagnifierPosition(100, 100))).toEqual({ x: 100, y: 100 });
   });
 });
