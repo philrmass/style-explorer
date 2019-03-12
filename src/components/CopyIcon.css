@@ -1,29 +1,33 @@
 .copyIcon {
-  padding: 0.2em;
+  margin: 0.1em;
+  padding: 0.1em;
 }
 
 .wrap {
   position: relative;
+  --border-width: 3px;
+  --box-size: 1.1em;
+  --box-radius: 0.15em;
 }
 
 .back {
   box-sizing: border-box;
-  width: 1.5em;
-  height: 1.5em;
-  margin-right: 8px;
-  margin-top: 8px;
-  border-bottom: 4px solid currentColor;
-  border-left: 4px solid currentColor;
-  border-radius: 0.3em;
+  width: var(--box-size);
+  height: var(--box-size);
+  margin-right: calc(2 * var(--border-width));
+  margin-top: calc(2 * var(--border-width));
+  border-bottom: var(--border-width) solid currentColor;
+  border-left: var(--border-width) solid currentColor;
+  border-radius: var(--box-radius);
 }
 
 .front {
   position: absolute;
   box-sizing: border-box;
-  left: 8px;
-  bottom: 8px;
-  width: 1.5em;
-  height: 1.5em;
-  border: 4px solid currentColor;
-  border-radius: 0.3em;
+  left: calc(2 * var(--border-width));
+  bottom: calc(2 * var(--border-width));
+  width: var(--box-size);
+  height: var(--box-size);
+  border: var(--border-width) solid currentColor;
+  border-radius: var(--box-radius);
 }
