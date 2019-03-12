@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { setMagnifierPosition, setFullSize, setDisplaySize } from '../actions';
 import styles from './Source.css';
 
 const MAG_PIXEL_SIZE = 10;
@@ -30,7 +31,7 @@ class Source extends React.Component {
         fullImage.onload = () => { 
           fullCanvas.width = fullImage.width;
           fullCanvas.height = fullImage.height;
-          //??? setFullSize(fullCanvas.width, fullCanvas.height);
+          this.props.dispatch(setFullSize(fullCanvas.width, fullCanvas.height));
           console.log('  fw,fh', fullCanvas.width, fullCanvas.height);
           ctx.drawImage(fullImage, 0, 0);
           fullImage.style.display = 'none';
@@ -59,9 +60,11 @@ class Source extends React.Component {
     const rect = wrap.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    //??? setMagnifierPosition(x, y);
+    this.props.dispatch(setMagnifierPosition(x, y));
     console.log('  x,y', x, y);
+    //???? move below
     const displayImage = this.displayImage.current;
+    this.props.dispatch(setDisplaySize(displayImage.width, displayImage.height));
     console.log('  dw,dh', displayImage.width, displayImage.height);
   }
 
@@ -105,6 +108,7 @@ class Source extends React.Component {
 }
 
 Source.propTypes = {
+  dispatch: PropTypes.func,
   url: PropTypes.string,
   mag: PropTypes.object
 };
