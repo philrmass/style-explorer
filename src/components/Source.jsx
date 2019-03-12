@@ -32,7 +32,6 @@ class Source extends React.Component {
           fullCanvas.width = fullImage.width;
           fullCanvas.height = fullImage.height;
           this.props.dispatch(setFullSize(fullCanvas.width, fullCanvas.height));
-          console.log('  fw,fh', fullCanvas.width, fullCanvas.height);
           ctx.drawImage(fullImage, 0, 0);
           fullImage.style.display = 'none';
           resolve(fullCanvas);
@@ -64,13 +63,12 @@ class Source extends React.Component {
     //???? move below
     const displayImage = this.displayImage.current;
     this.props.dispatch(setDisplaySize(displayImage.width, displayImage.height));
-    console.log('  x,y', x, y);
     console.log('  dw,dh', displayImage.width, displayImage.height);
   }
 
   //??? handle window resize
-  //let rect = this.displayImage.getBoundingClientRect();
-  //??? setDisplaySize(rect.width, rect.height);
+  //const displayImage = this.displayImage.current;
+  //this.props.dispatch(setDisplaySize(displayImage.width, displayImage.height));
   //console.log('  dw,dh', rect.width, rect.height);
 
   render() {
@@ -80,7 +78,6 @@ class Source extends React.Component {
       width: this.props.mag.cursorWidth + 'px',
       height: this.props.mag.cursorHeight + 'px'
     };
-    console.log('curs', cursorStyle);
     return (
       <div>
         <div>
@@ -115,12 +112,6 @@ class Source extends React.Component {
     );
   }
 }
-/*
-              left={this.props.mag.cursorX + 'px'}
-              top={this.props.mag.cursorY + 'px'}
-              width={this.props.mag.cursorWidth + 'px'}
-              height={this.props.mag.cursorHeight + 'px'}
-*/
 
 Source.propTypes = {
   dispatch: PropTypes.func,
