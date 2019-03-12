@@ -45,6 +45,7 @@ class Source extends React.Component {
           fullCanvas.width = fullImage.width;
           fullCanvas.height = fullImage.height;
           this.props.dispatch(setFullSize(fullCanvas.width, fullCanvas.height));
+          this.props.dispatch(setCursorPosition(0, 0));
           ctx.drawImage(fullImage, 0, 0);
           fullImage.style.display = 'none';
           this.imageResize();
@@ -60,6 +61,7 @@ class Source extends React.Component {
   renderMagnifier(fullCanvas, mag) {
     let magCanvas = this.magCanvas.current;
     let ctx = magCanvas.getContext('2d');
+    ctx.clearRect(0, 0, magCanvas.width, magCanvas.height);
     ctx.imageSmoothingEnabled = false;
     if(fullCanvas.width && fullCanvas.height) {
       ctx.drawImage(fullCanvas, 

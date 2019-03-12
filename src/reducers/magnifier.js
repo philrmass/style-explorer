@@ -42,27 +42,37 @@ function magnifier(state = defaultState, action) {
   switch(action.type) {
     case types.SET_CURSOR_POSITION:
       [x, y] = getPosition(action.cursorX, action.cursorY, state);
-      state = Object.assign(state, { x, y });
+      state = Object.assign({}, state, { x, y });
       [cx, cy, cw, ch] = getCursor(state);
       return Object.assign({}, state, {
-        x,
-        y,
         cursorX: cx,
         cursorY: cy,
         cursorWidth: cw,
         cursorHeight: ch
       });
     case types.SET_FULL_SIZE:
-      //??? set, then update cursor
-      return Object.assign({}, state, {
+      state = Object.assign({}, state, { 
         fullWidth: action.width,
         fullHeight: action.height
       });
-    case types.SET_DISPLAY_SIZE:
-      //??? set, then update cursor
+      [cx, cy, cw, ch] = getCursor(state);
       return Object.assign({}, state, {
+        cursorX: cx,
+        cursorY: cy,
+        cursorWidth: cw,
+        cursorHeight: ch
+      });
+    case types.SET_DISPLAY_SIZE:
+      state = Object.assign({}, state, {
         displayWidth: action.width,
         displayHeight: action.height
+      });
+      [cx, cy, cw, ch] = getCursor(state);
+      return Object.assign({}, state, {
+        cursorX: cx,
+        cursorY: cy,
+        cursorWidth: cw,
+        cursorHeight: ch
       });
     default:
       return state;
