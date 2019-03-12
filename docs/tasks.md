@@ -1,53 +1,62 @@
 ## Style Explorer Features
-### Necessary
-* MAGNIFIER, SET COLOR ON CLICK
-* DOM COLOR PICKER, SET COLOR, HSL DISPLAY
-* SOURCE FROM PIXELS
-* COLLAPSIBLES, RESPONSIVE LAYOUT, SOURCE GROW
-* COPY ICON
-* 2D HSL GRAPH
-### Optional
-* 3D HSL GRAPH
-* COLOR PICKER BACKGROUND PIXELS
-* SAVED COLORS
-* SAVE & DELETE SOURCES
+### Basic
+* Magnifier, set color on click
+* Color picker, set color on click
+* Copy icon
+* Collapsibles, responsive layout, source grow
+* Parse source pixels
+* 2D HSL graph
+
+### Future
+* Color picker background pixels
+* 3D HSL graph
+* Saved colors
+* Save & delete sources
 
 ## Style Explorer Tasks
-### To Do
-* Create magnifier, display pixels at specific size
-* Add click/drag events to move magnifier
-* Add click/drag events to set color from magnifier
-* Add click/drag events to color picker
+### Basic
+* Yellow border on magnifier
+* Write x,y info by magifier, css
+* Set display size on resize events
+* Set cursor pos on source load
+* Set cursor in display size action
+* Set cursor in full size action
+* Fix magnifier tests
+* Change color set back to hex
+* Pick color in magnifier
+* Create copy icon from dom
+* Create basic div layout for color picker with css
+* Add mouse move events to color picker divs
+* Add hsl display at top of picker
+* Add hsl to rgb conversion function and test
+* Add hsl color reducer and action
 * Set HSL values from click and drag
-* Add HSL to RGB conversion function
-* Update data reference
-* Parse source image data, add colors key to sources
+* Add rotating circle to color picker
+* Add drag sliders to color picker
+* Create copy icons from dom elements
+* Define ui state slice
+* Get collapsibles to collapse
+* Set collapsible css types
+* Set source component to grow
+* Resize picker to be full width on mobile
 * Add source color reduce function for grouping
 * Add test for soure image data processing
+* Parse source image data, add colors key to sources
+* Update docs with actions, reducers, data
 
-#### Components
+### Future
+* Touch events in color picker
+* Add custom image background to color picker
+* Add arrow keys to move magnifier
+* Add pwa files (sw, manifest, icons)
+* Add default sources
+* Add message for bad url/file fetch or load
 * Show full source name on hover
-#### Data
-* Define ui state slice
 * Sort sources by timeAdded
 * Save sources to indexdb
-* Add message for bad url/file fetch or load
-* Update docs with actions, reducers, data
-* Add a default source or sources
-#### Graphics
-* Create basic color picker from dom elements
-* Add rotating circle to color picker
-* Add color elements for color picker directions
-* Add custom image background to color picker
 * Create a webgl transparent-background cube
 * Add mouse movements to rotate cube
-#### Style/Layout
-* Create copy icons from dom elements
-* Set source component to grow
-* Resize source to take available space
-* Resize picker to be full width on mobile
-* Create icon and android/ios icon set
-* Add pwa files (sw, manifest, icons)
+* Create 3d hsl graph
 
 ### Completed
 * Choose body and headline fonts
@@ -80,3 +89,5 @@
 * Test undefined, bad action, set source, in currentSource reducer
 * Display image in source component by current source url
 * Set current source when clicking on recent source
+* Create magnifier, display pixels at specific size
+* Add click/drag events to move magnifier
