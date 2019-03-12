@@ -44,3 +44,11 @@ export function setFullSize(width, height) {
     height
   };
 }
+
+export function setDisplaySize(width, height) {
+  return {
+    type: types.SET_DISPLAY_SIZE,
+    width,
+    height
+  };
+}
