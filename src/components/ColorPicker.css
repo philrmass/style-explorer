@@ -6,6 +6,7 @@
 .hslaBar {
   display: flex;
   align-items: center;
+  box-sizing: border-box;
   padding: 0.3em;
   border: 1px solid var(--border-color);
   background-color: #808080;
@@ -18,11 +19,12 @@
 }
 
 .hueSatBox {
-  background-color: #90c0ff;
+  box-sizing: border-box;
   height: 450px;
 }
 
 .lightBox {
-  background-color: #c090ff;
+  box-sizing: border-box;
   height: 45%;
+  border-bottom: 2px solid var(--border-color);
 }
