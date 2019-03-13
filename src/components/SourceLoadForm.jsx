@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addSource, setSource } from '../actions';
+import { addSource, setSource, setSourceColors } from '../actions';
 import Button from './Button';
 import styles from './SourceLoadForm.css';
+import Color from './../color';
 
 const USE_INITIAL_IMAGE = true;
 
@@ -21,7 +22,8 @@ class SourceLoadForm extends React.Component {
 
   componentDidMount() {
     if(USE_INITIAL_IMAGE) {
-      this.fetchUrlImage('https://i.imgur.com/eoZKY2v.jpg');
+      this.fetchUrlImage('https://i.imgur.com/ipq17o4.png');
+      //this.fetchUrlImage('https://i.imgur.com/eoZKY2v.jpg');
     }
   }
 
@@ -91,9 +93,18 @@ class SourceLoadForm extends React.Component {
     canvas.height = image.height;
     ctx.drawImage(image, 0, 0);
     image.style.display = 'none';
-    const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    this.props.dispatch(addSource(name, url, data));
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    this.props.dispatch(addSource(name, url));
     this.props.dispatch(setSource(url));
+    new Promise((resolve) => {
+      resolve(Color.parseColorData(imageData.data));
+    }).then((colors) => {
+      //??? remove timer
+      setTimeout(() => {
+        console.log('dispatch');
+        this.props.dispatch(setSourceColors(url, colors));
+      }, 3000);
+    });
   }
 
   render() {

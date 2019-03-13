@@ -25,15 +25,19 @@ export function setColorHsl(hue, sat, light) {
   };
 }
 
-export function addSource(name, url, imageData) {
+export function addSource(name, url) {
   return {
     type: types.ADD_SOURCE,
-    id: url,
-    source: {
-      name,
-      url,
-      length: imageData.length
-    }
+    name,
+    url,
+  };
+}
+
+export function setSourceColors(url, colors) {
+  return {
+    type: types.SET_SOURCE_COLORS,
+    url,
+    colors
   };
 }
 

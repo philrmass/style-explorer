@@ -26,5 +26,5 @@
 .lightBox {
   box-sizing: border-box;
   height: 45%;
-  border-bottom: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--light-text-color);
 }

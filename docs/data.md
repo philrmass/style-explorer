@@ -1,26 +1,23 @@
 # Style Explorer Data
 
 ## Reducers and Actions
-- currentColor
-  - SET
-- currentSource
-  - SET
-- sources
-  - ADD
-  - REMOVE
-- ui
-  - OPEN
-  - CLOSE
-
-## Data Slices
-- currentColor
-  - color
-- currentSource
-- sources
-  - source (xN)
-    - color w/ count (xN)
-- ui
-  - isOpen (xN)
+#### currentColor
+* setColorHex(hex)
+* setColorRgb(red, green, blue)
+* setColorHsl(hue, sat, light)
+#### sources
+* addSource(name, url, imageData)
+#### currentSource
+* setSource(url)
+#### magnifier
+* setCursorPosition(x, y)
+* setFullSize(width, height)
+* setDisplaySize(width, height)
+#### ui
+* toggleColorPicker()
+* toggleSource()
+* toggleSources()
+* toggleGraph()
 
 ## Data Types
 - color

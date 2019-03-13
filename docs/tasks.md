@@ -10,24 +10,22 @@
 
 ## Style Explorer Tasks
 ### Basic
-* Set source component to grow
-* Fix margin and padding on collapsibles
-* Fix layout of collapsibles
-* Resize picker to be full width on mobile
-* Remove padding and margin on mobile
-* Make line white on color picker
-* Change color of text color change
-* Update docs with actions, reducers, data
 * Add source color reduce function for grouping
 * Add test for soure image data processing
 * Parse source image data, add colors key to sources
-* Add rotating circle to color picker
-* Add drag sliders to color picker
 * Add 2D hsl graph
+* Add rotating circle to color picker
+* Add sat and light sliders to color picker
 
 ### Future
-* Switch text to have contrast with current color
+* Change text color to contrast with current color
 * Touch events in color picker
+* Add color data test
+* Restore test for source add
+* Add test for set source colors
+* Add tests for pixel processing
+* Add thunk for async actions (image loading, pixel processing)
+* Add image.js to process images
 * Add custom image background to color picker
 * Add arrow keys to move magnifier
 * Add pwa files (sw, manifest, icons)
@@ -91,3 +89,10 @@
 * Add hsl color reducer and action
 * Add mouse move events to color picker divs
 * Update hsl values from mouse movements
+* Set source component to grow
+* Fix margin and padding on collapsibles
+* Fix layout of collapsibles
+* Resize picker to be full width on mobile
+* Remove padding and margin on mobile
+* Make line white on color picker
+* Update docs with actions, reducers, data

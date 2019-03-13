@@ -121,6 +121,32 @@ class Color {
       return d0;
     }
   }
+
+  static parseColorData(pixels) {
+    console.log('pixels', pixels);
+    //const colors = this.pixelsToColors(pixels);
+    const colors = [{red: 33, green: 66, blue: 99 }];
+    console.log('colors', colors);
+    return colors;
+  }
+
+  static pixelsToColors(pixels) {
+    const colors = pixels.reduce((colors, component) => {
+      const last = colors[colors.length - 1];
+      const count = Object.keys(last).length;
+      if(count == 0) {
+        last.red = component;
+      } else if(count === 1) {
+        last.green = component;
+      } else if(count === 2) {
+        last.blue = component;
+      } else {
+        colors.push({});
+      }
+      return colors;
+    }, [{}]);
+    return colors.slice(0, -1);
+  }
 }
 
 export default Color;
