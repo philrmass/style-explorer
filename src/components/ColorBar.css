@@ -4,7 +4,8 @@
   padding: 0.3em;
   border: 1px solid var(--border-color);
   background-color: #808080;
-  font-size: 2.4rem;
+  font-family: var(--mono-font);
+  font-size: 2.2rem;
 }
 
 .colorItem {
