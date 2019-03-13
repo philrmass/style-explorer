@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setColorHex } from '../actions';
+import { setColorHex, setColorHsl } from '../actions';
 import CopyIcon from './CopyIcon';
 import Clipboard from '../clipboard';
 import styles from './ColorPicker.css';
+
+function handleLight(color, event, dispatch) {
+  const lightScale = -0.1;
+  const light = color.light + (lightScale * event.movementY);
+  dispatch(setColorHsl(color.hue, color.sat, light));
+}
 
 function ColorPicker({ dispatch, color }) {
   const style = { backgroundColor: '#' + color.hex };
@@ -17,14 +23,16 @@ function ColorPicker({ dispatch, color }) {
         className={styles.hslaBar}
         style={style}>
         <span id='hslaText'>
-          {`hsla(${color.hue}, ${color.sat}%, ${color.light}%, 1)`}
+          {`hsla(${color.hue.toFixed(0)}, ${color.sat.toFixed(1)}%, ${color.light.toFixed(1)}%, 1)`}
         </span>
         <button onClick={() => Clipboard.copyTextFromId('hslaText')}>
           <CopyIcon/>
         </button>
       </div>
       <div className={styles.hueSatBox}>
-        <div className={styles.lightBox}>
+        <div 
+          className={styles.lightBox} 
+          onMouseMove={(event) => handleLight(color, event, dispatch)}>
         </div>
       </div>
     </div>

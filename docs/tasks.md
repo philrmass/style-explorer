@@ -15,7 +15,6 @@
 ### Basic
 * Add mouse move events to color picker divs
 * Update hsl values from mouse movements
-* Add hsl color reducer and action
 * Add rotating circle to color picker
 * Add drag sliders to color picker
 * Define ui state slice
@@ -91,3 +90,4 @@
 * Magnifier, set color on click
 * Copy icon
 * Add hsl to rgb conversion function and test
+* Add hsl color reducer and action

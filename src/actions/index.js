@@ -8,6 +8,7 @@ export function setColorHex(hex) {
 }
 
 export function setColorRgb(red, green, blue) {
+  console.log('setRgb', red, green, blue);
   return {
     type: types.SET_COLOR_RGB,
     red,

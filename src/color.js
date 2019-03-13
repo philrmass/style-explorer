@@ -97,7 +97,6 @@ class Color {
     }
     let d0 = l * 2 - d1;
 
-    console.log('h d0 d1', h.toFixed(3), d0.toFixed(3), d1.toFixed(3));
     const red = Math.round(255 * this.hueToComponent(d0, d1, h + 2));
     const green = Math.round(255 * this.hueToComponent(d0, d1, h));
     const blue = Math.round(255 * this.hueToComponent(d0, d1, h - 2));
