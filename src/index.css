@@ -1,7 +1,7 @@
 :root {
-  --main-half-padding: 0.5rem;
+  --main-half-padding: 0.3rem;
   --content-padding: 0.6rem;
-  --main-border-radius: 3px;
+  --main-border-radius: 5px;
   --border-color: #808284;
   --mid-color: #6e7273;
   --dark-color: #484c52;
