@@ -1,19 +1,38 @@
 .mainPane {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   padding: var(--main-half-padding);
   font-size: 1.6rem;
 }
 
+.leftLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.rightLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 @media only screen and (min-width: 1200px) {
   .mainPane {
-    flex-direction: row;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .mainPane {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  .leftLayout {
+    align-items: stretch;
+  }
+
+  .rightLayout {
+    align-items: stretch;
   }
 }
