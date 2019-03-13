@@ -6,12 +6,27 @@ import CopyIcon from './CopyIcon';
 import Clipboard from '../clipboard';
 import styles from './ColorPicker.css';
 
+function updateHueSat(color, event, dispatch) {
+  if(event.buttons === 1) {
+    event.preventDefault();
+    const hueScale = 0.1;
+    let hue = color.hue + (hueScale * event.movementX);
+    hue = (hue < 0) ? (hue + 360) : hue;
+    hue = (hue >= 360) ? (hue - 360) : hue;
+    const satScale = 0.1;
+    let sat = color.sat + (satScale * event.movementY);
+    sat = Math.min(Math.max(sat, 0), 100);
+    dispatch(setColorHsl(hue, sat, color.light));
+  }
+}
+
 function updateLight(color, event, dispatch) {
   if(event.buttons === 1) {
-    const scale = -0.05;
+    event.preventDefault();
+    event.stopPropagation();
+    const scale = -0.1;
     let light = color.light + (scale * event.movementY);
-    light = (light < 0) ? 0 : light;
-    light = (light > 100) ? 100 : light;
+    light = Math.min(Math.max(light, 0), 100);
     dispatch(setColorHsl(color.hue, color.sat, light));
   }
 }
@@ -32,7 +47,9 @@ function ColorPicker({ dispatch, color }) {
           <CopyIcon/>
         </button>
       </div>
-      <div className={styles.hueSatBox}>
+      <div 
+        className={styles.hueSatBox}
+        onMouseMove={(event) => updateHueSat(color, event, dispatch)}>
         <div 
           className={styles.lightBox} 
           onMouseMove={(event) => updateLight(color, event, dispatch)}>
