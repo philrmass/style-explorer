@@ -5,9 +5,10 @@ export const defaultState = {};
 function sources(state = defaultState, action) {
   switch(action.type) {
     case ADD_SOURCE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         [action.id]: action.source
-      });
+      };
     default:
       return state;
   }

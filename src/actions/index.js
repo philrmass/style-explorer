@@ -67,3 +67,27 @@ export function setDisplaySize(width, height) {
     height
   };
 }
+
+export function toggleColorPicker() {
+  return {
+    type: types.TOGGLE_COLOR_PICKER
+  };
+}
+
+export function toggleSource() {
+  return {
+    type: types.TOGGLE_SOURCE
+  };
+}
+
+export function toggleSources() {
+  return {
+    type: types.TOGGLE_SOURCES
+  };
+}
+
+export function toggleGraph() {
+  return {
+    type: types.TOGGLE_GRAPH
+  };
+}
