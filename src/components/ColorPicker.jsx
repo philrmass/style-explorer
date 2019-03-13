@@ -6,10 +6,12 @@ import CopyIcon from './CopyIcon';
 import Clipboard from '../clipboard';
 import styles from './ColorPicker.css';
 
-function handleLight(color, event, dispatch) {
-  const lightScale = -0.1;
-  const light = color.light + (lightScale * event.movementY);
-  dispatch(setColorHsl(color.hue, color.sat, light));
+function updateLight(light, event) {
+  const scale = -0.05;
+  light = light + (scale * event.movementY);
+  light = (light < 0) ? 0 : light;
+  light = (light > 100) ? 100 : light;
+  return light;
 }
 
 function ColorPicker({ dispatch, color }) {
@@ -32,7 +34,7 @@ function ColorPicker({ dispatch, color }) {
       <div className={styles.hueSatBox}>
         <div 
           className={styles.lightBox} 
-          onMouseMove={(event) => handleLight(color, event, dispatch)}>
+          onMouseMove={(event) => dispatch(setColorHsl(color.hue, color.sat, updateLight(color.light, event)))}>
         </div>
       </div>
     </div>

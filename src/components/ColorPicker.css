@@ -1,5 +1,5 @@
 .colorPicker {
-  min-width: 300px;
+  min-width: 350px;
   background-color: #808080;
 }
 
@@ -19,7 +19,7 @@
 
 .hueSatBox {
   background-color: #90c0ff;
-  height: 400px;
+  height: 450px;
 }
 
 .lightBox {
