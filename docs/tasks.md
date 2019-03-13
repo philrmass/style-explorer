@@ -1,8 +1,5 @@
 ## Style Explorer Features
 ### Basic
-* Color picker, set color on click
-* Collapsibles, responsive layout, source grow
-* Parse source pixels
 * 2D HSL graph
 
 ### Future
@@ -13,17 +10,20 @@
 
 ## Style Explorer Tasks
 ### Basic
-* Add rotating circle to color picker
-* Add drag sliders to color picker
-* Define ui state slice
-* Get collapsibles to collapse
-* Set collapsible css types
 * Set source component to grow
+* Fix margin and padding on collapsibles
+* Fix layout of collapsibles
 * Resize picker to be full width on mobile
+* Remove padding and margin on mobile
+* Make line white on color picker
+* Change color of text color change
+* Update docs with actions, reducers, data
 * Add source color reduce function for grouping
 * Add test for soure image data processing
 * Parse source image data, add colors key to sources
-* Update docs with actions, reducers, data
+* Add rotating circle to color picker
+* Add drag sliders to color picker
+* Add 2D hsl graph
 
 ### Future
 * Switch text to have contrast with current color

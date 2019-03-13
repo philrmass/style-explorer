@@ -4,6 +4,7 @@
   border-radius: var(--main-border-radius);
   margin: var(--main-half-padding);
   background-color: var(--dark-color);
+  overflow: hidden;
 }
 
 .title{
