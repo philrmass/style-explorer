@@ -1,5 +1,6 @@
 import * as types from '../../src/constants/actionTypes';
 import sources from '../../src/reducers/sources';
+import { defaultState } from '../../src/reducers/sources';
 
 describe('sources', () => {
   const addId = 'url1';
@@ -13,11 +14,11 @@ describe('sources', () => {
   };
 
   test('Should return default state for undefined state', () => {
-    expect(sources(undefined, { type: null })).toEqual({});
+    expect(sources(undefined, { type: null })).toEqual(defaultState);
   });
 
   test('Should return same state for undefined action', () => {
-    expect(sources({}, { type: null })).toEqual({});
+    expect(sources({}, { type: null })).toEqual(defaultState);
   });
 
   test('Should add source from object and id', () => {

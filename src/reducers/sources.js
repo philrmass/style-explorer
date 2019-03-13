@@ -1,6 +1,8 @@
 import { ADD_SOURCE } from '../constants/actionTypes';
 
-function sources(state = {}, action) {
+export const defaultState = {};
+
+function sources(state = defaultState, action) {
   switch(action.type) {
     case ADD_SOURCE:
       return Object.assign({}, state, {

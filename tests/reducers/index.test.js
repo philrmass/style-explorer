@@ -1,15 +1,7 @@
 import rootReducer from '../../src/reducers/index';
-import * as currentColor from '../../src/reducers/currentColor';
-import * as magnifier from '../../src/reducers/magnifier';
+import { defaultState } from '../../src/reducers/index';
 
 describe('rootReducer', () => {
-  const defaultState = { 
-    currentColor: currentColor.defaultState,
-    sources: {},
-    currentSource: '',
-    magnifier: magnifier.defaultState,
-  };
-
   test('Should return default state for undefined state', () => {
     expect(rootReducer(undefined, { type: null })).toEqual(defaultState);
   });

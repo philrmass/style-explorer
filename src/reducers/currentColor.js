@@ -14,7 +14,6 @@ function currentColor(state = defaultState, action) {
         green: action.green,
         blue: action.blue
       };
-      console.log('currRgb', rgb);
       return Color.rgbToColor(rgb);
     case SET_COLOR_HSL:
       hsl = {
