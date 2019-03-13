@@ -13,7 +13,7 @@ describe('ui', () => {
 
   const colorPickerOn = {
     ...defaultState,
-    colorPickerIsOpen: true
+    colorPickerIsOpen: false
   };
 
   test('Should toggle color picker open value', () => {
@@ -22,7 +22,7 @@ describe('ui', () => {
 
   const sourceOn = {
     ...defaultState,
-    sourceIsOpen: true
+    sourceIsOpen: false
   };
 
   test('Should toggle source open value', () => {
@@ -31,7 +31,7 @@ describe('ui', () => {
 
   const sourcesOn = {
     ...defaultState,
-    sourcesIsOpen: true
+    sourcesIsOpen: false
   };
 
   test('Should toggle sources open value', () => {
@@ -40,7 +40,7 @@ describe('ui', () => {
 
   const graphOn = {
     ...defaultState,
-    graphIsOpen: true
+    graphIsOpen: false
   };
 
   test('Should toggle graph open value', () => {

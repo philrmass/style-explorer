@@ -1,10 +1,10 @@
 import * as types from '../constants/actionTypes';
 
 export const defaultState = {
-  colorPickerIsOpen: false,
-  sourceIsOpen: false,
-  sourcesIsOpen: false,
-  graphIsOpen: false
+  colorPickerIsOpen: true,
+  sourceIsOpen: true,
+  sourcesIsOpen: true,
+  graphIsOpen: true
 };
 
 function ui(state = defaultState, action) {
