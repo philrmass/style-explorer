@@ -123,8 +123,7 @@ class Color {
   }
 
   static parseColorData(pixels) {
-    const pixelColors = this.pixelsToColors(pixels);
-    return this.combineColors(pixelColors);
+    return this.combineColors(this.pixelsToColors(pixels));
   }
 
   static pixelsToColors(pixels) {
@@ -149,9 +148,17 @@ class Color {
   }
 
   static combineColors(colors) {
-    return colors.reduce((combined, value) => {
-      let color = combined[value.hex] || {...value, count: 0};
-      color.count += 1;
+    return colors.reduce((combined, rgbh) => {
+      let color = combined[rgbh.hex];
+      if(color) {
+        color.count += 1;
+      } else {
+        color = {
+          ...this.rgbToHsl(rgbh),
+          ...rgbh,
+          count: 1
+        };
+      }
       combined[color.hex] = color;
       return combined;
     }, {});
