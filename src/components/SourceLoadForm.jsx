@@ -11,7 +11,8 @@ const USE_INITIAL_IMAGE = true;
 class SourceLoadForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { inputUrl: '' };
+    this.state = { inputUrl: 'https://i.imgur.com/qEZmIjE.jpg' };
+
     this.handleUrlChange = this.handleUrlChange.bind(this);
     this.handleUrlSubmit = this.handleUrlSubmit.bind(this);
     this.handleFileClick = this.handleFileClick.bind(this);
@@ -22,8 +23,7 @@ class SourceLoadForm extends React.Component {
 
   componentDidMount() {
     if(USE_INITIAL_IMAGE) {
-      this.fetchUrlImage('https://i.imgur.com/ipq17o4.png');
-      //this.fetchUrlImage('https://i.imgur.com/eoZKY2v.jpg');
+      this.fetchUrlImage('https://i.imgur.com/vRIDa5f.jpg');
     }
   }
 

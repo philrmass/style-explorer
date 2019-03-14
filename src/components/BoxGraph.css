@@ -1,13 +1,16 @@
 .boxGraph {
   min-height: 300px;
   min-width: 300px;
+  padding: var(--content-padding);
   background-color: var(--mid-color);
 }
 
 .label {
-  padding: var(--content-padding);
+  padding-bottom: var(--content-padding);
   font-size: 0.9em;
 }
 
 .graphCanvas {
+  width: 400px;
+  height: 400px;
 }
