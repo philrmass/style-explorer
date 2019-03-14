@@ -5,11 +5,14 @@ import BoxGraph from './BoxGraph';
 import styles from './Graph.css';
 
 function Graph({ sources, url }) {
+  const colors = (sources[url] && sources[url].colors) || {};
   return (
     <div className={styles.boxGraph}>
       <div style={{fontSize: '0.8em'}}>
       </div>
-      <BoxGraph colors={sources[url] && sources[url].colors} />
+      <BoxGraph 
+        url={url}
+        colors={colors} />
     </div>
   );
 }

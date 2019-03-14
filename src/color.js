@@ -123,29 +123,38 @@ class Color {
   }
 
   static parseColorData(pixels) {
-    //console.log('pixels', pixels);
-    const colors = this.pixelsToColors(pixels);
-    //const colors = [{red: 33, green: 66, blue: 99 }];
-    //console.log('colors', colors);
-    return colors;
+    const pixelColors = this.pixelsToColors(pixels);
+    return this.combineColors(pixelColors);
   }
 
   static pixelsToColors(pixels) {
-    const colors = pixels.reduce((colors, component) => {
-      const last = colors[colors.length - 1];
-      const count = Object.keys(last).length;
-      if(count == 0) {
-        last.red = component;
+    return pixels.reduce((colors, component) => {
+      let count = 4;
+      let last = {};
+      if(colors.length > 0) {
+        last = colors[colors.length - 1];
+        count = Object.keys(last).length;
+      }
+      if(count == 4) {
+        colors.push({ red: component });
       } else if(count === 1) {
         last.green = component;
       } else if(count === 2) {
         last.blue = component;
       } else {
-        colors.push({});
+        last.hex = this.rgbToHex(last);
       }
       return colors;
-    }, [{}]);
-    return colors.slice(0, -1);
+    }, []);
+  }
+
+  static combineColors(colors) {
+    return colors.reduce((combined, value) => {
+      let color = combined[value.hex] || {...value, count: 0};
+      color.count += 1;
+      combined[color.hex] = color;
+      return combined;
+    }, {});
   }
 }
 

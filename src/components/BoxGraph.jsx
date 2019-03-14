@@ -5,7 +5,7 @@ import styles from './BoxGraph.css';
 function BoxGraph({ colors }) {
   return (
     <div className={styles.boxGraph}>
-      <div>{colors && colors.length} colors</div>
+      <div>{Object.keys(colors).length} unique colors</div>
     </div>
   );
 }

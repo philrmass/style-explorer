@@ -11,7 +11,7 @@ function sources(state = defaultState, action) {
         [action.url]: {
           name: action.name,
           url: action.url,
-          colors: []
+          colors: {}
         }
       };
     case SET_SOURCE_COLORS:
