@@ -93,18 +93,13 @@ class SourceLoadForm extends React.Component {
     canvas.height = image.height;
     ctx.drawImage(image, 0, 0);
     image.style.display = 'none';
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     this.props.dispatch(addSource(name, url));
     this.props.dispatch(setSource(url));
-    new Promise((resolve) => {
-      resolve(Color.parseColorData(imageData.data));
-    }).then((colors) => {
-      //??? remove timer
-      setTimeout(() => {
-        console.log('dispatch');
-        this.props.dispatch(setSourceColors(url, colors));
-      }, 3000);
-    });
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    setTimeout(() => {
+      const colors = Color.parseColorData(imageData.data);
+      this.props.dispatch(setSourceColors(url, colors));
+    }, 100);
   }
 
   render() {

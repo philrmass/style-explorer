@@ -123,10 +123,10 @@ class Color {
   }
 
   static parseColorData(pixels) {
-    console.log('pixels', pixels);
-    //const colors = this.pixelsToColors(pixels);
-    const colors = [{red: 33, green: 66, blue: 99 }];
-    console.log('colors', colors);
+    //console.log('pixels', pixels);
+    const colors = this.pixelsToColors(pixels);
+    //const colors = [{red: 33, green: 66, blue: 99 }];
+    //console.log('colors', colors);
     return colors;
   }
 
