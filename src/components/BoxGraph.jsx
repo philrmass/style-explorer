@@ -9,27 +9,40 @@ class BoxGraph extends React.Component {
   }
 
   getSnapshotBeforeUpdate(prevProps) {
-    if(prevProps.url !== this.props.url) {
+    const last = Object.keys(prevProps.colors).length;
+    const now = Object.keys(this.props.colors).length;
+    console.log('snap\np=', last, '\nn=', now);
+    if(last != now) {
       this.renderGraph(this.props.colors);
     }
   }
 
   renderGraph(colors) {
     const graphSize = 400;
+    const hueMax = 360;
+    const satMax = 100;
+    const lightMax = 100;
     const values = Object.values(colors);
     let canvas = this.graphCanvas.current;
     canvas.width = graphSize;
     canvas.height = graphSize;
     let ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#ff8000';
+    ctx.fillStyle = '#808080';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    console.log('render graph', values.length, canvas, ctx);
+    values.forEach((color) => {
+      const x = ((graphSize - 1) / hueMax) * color.hue;
+      const y = (graphSize - 1) - (((graphSize - 1) / satMax) * color.sat);
+      ctx.fillStyle = '#' + color.hex;
+      ctx.fillRect(x, y, 1, 1);
+    });
   }
 
   render() {
     return (
       <div className={styles.boxGraph}>
-        <div>{Object.keys(this.props.colors).length} unique colors</div>
+        <div className={styles.label}>
+          {Object.keys(this.props.colors).length} unique colors
+        </div>
         <canvas 
           id='graphCanvas' 
           ref={this.graphCanvas}
