@@ -1,6 +1,5 @@
 class Clipboard {
   static copyTextFromId(id) {
-    console.log('copy', id);
     let range = document.createRange();
     range.selectNode(document.getElementById(id));
     window.getSelection().removeAllRanges();

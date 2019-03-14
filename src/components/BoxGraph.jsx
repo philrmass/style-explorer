@@ -18,13 +18,13 @@ class BoxGraph extends React.Component {
   }
 
   renderGraph(colors) {
-    const start = Date.now();
-    const size = 100;
-    const dotSize = 4;
-    const fullSize = dotSize * size;
-    const hueMax = 360;
+    const fullSize = 400;
+    const dotSize = 2;
+    const size = fullSize / dotSize;
+    const hueScale = (size / 360);
     const satMax = 100;
-    const lightMax = 100;
+    const satScale = (size / satMax);
+    const lightScale = (size / 100);
 
     const canvas = this.graphCanvas.current;
     const ctx = canvas.getContext('2d');
@@ -35,15 +35,15 @@ class BoxGraph extends React.Component {
 
     let count = 0;
     colors.forEach((color) => {
-      const x = ((size / hueMax) * color.hue);
-      const y = ((size / satMax) * color.sat);
+      const vx = hueScale * color.hue;
+      const vy = (satScale * (satMax - color.sat)) - 1;
+      const x = dotSize * Math.floor(vx);
+      const y = dotSize * Math.floor(vy);
       ctx.fillStyle = '#' + color.hex;
-      ctx.fillRect(x, y, 1, 1);
+      ctx.fillRect(x, y, dotSize, dotSize);
       count += color.count;
     });
     this.setState({ count: count, unique: (100 * (colors.length / count)) });
-    const time = Date.now() - start;
-    console.log('graph ', (0.001 * time).toFixed(3), 's\n', colors.length, count, (100 * (colors.length / count)).toFixed(1));
   }
 
   render() {
