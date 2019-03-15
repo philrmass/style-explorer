@@ -1,26 +1,25 @@
 ## Style Explorer Features
-### Basic
-* 2D HSL graph
+### Current
+* Hex, RGBA, and HSL copyable references
+* Color picker
 
 ### Future
-* Color picker background pixels
+* Improved Color picker
+* Saved sources (w/ delete)
+* Saved colors (w/ delete)
 * 3D HSL graph
-* Saved colors
-* Save & delete sources
 
 ## Style Explorer Tasks
-### Basic
-* Add source color reduce function for grouping
-* Add test for soure image data processing
-* Parse source image data, add colors key to sources
-* Add 2D hsl graph
+### To Do
 * Add rotating circle to color picker
 * Add sat and light sliders to color picker
-
-### Future
-* Change text color to contrast with current color
+* Add background pixels to color picker
 * Touch events in color picker
-* Add color data test
+* Change text color to contrast with current color
+* Add test for soure image data processing
+* Add tests for all color conversion
+* Optimize source color processing
+* Process source colors in web workers, split up
 * Restore test for source add
 * Add test for set source colors
 * Add tests for pixel processing
@@ -96,3 +95,6 @@
 * Remove padding and margin on mobile
 * Make line white on color picker
 * Update docs with actions, reducers, data
+* Add source color reduce function for grouping
+* Parse source image data, add colors key to sources
+* Add 2D hsl graph
