@@ -11,6 +11,7 @@
 
 ## Style Explorer Tasks
 ### To Do
+* Add thunk middleware to clean up fetch and color processing calls
 * Add rotating circle to color picker
 * Add sat and light sliders to color picker
 * Add background pixels to color picker
